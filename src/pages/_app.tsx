@@ -1,9 +1,17 @@
 import React, { useEffect } from 'react';
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
+import { useRouter } from 'next/router';
 import '../styles/globals.css';
 
+// Import all pages
+import HomePage from './index';
+import CheckInPage from './checkin';
+import OnboardingPage from './onboarding';
+import ProgressPage from './progress/[challengeId]';
+
 function MyApp({ Component, pageProps }: AppProps) {
+  const router = useRouter();
   useEffect(() => {
     // Register service worker for PWA functionality
     if ('serviceWorker' in navigator && process.env.NODE_ENV === 'production') {

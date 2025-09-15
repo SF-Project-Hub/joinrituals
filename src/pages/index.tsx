@@ -72,12 +72,12 @@ const HomePage: React.FC = () => {
 
   const handleMorningCheckIn = () => {
     const day = Math.max(1, currentDay);
-    router.push(`/checkin/${defaultChallenge.id}/${day}?tab=morning`);
+    router.push(`/checkin?challengeId=${defaultChallenge.id}&day=${day}&tab=morning`);
   };
 
   const handleEveningCheckIn = () => {
     const day = Math.max(1, currentDay);
-    router.push(`/checkin/${defaultChallenge.id}/${day}?tab=evening`);
+    router.push(`/checkin?challengeId=${defaultChallenge.id}&day=${day}&tab=evening`);
   };
 
   const handleViewProgress = () => {
