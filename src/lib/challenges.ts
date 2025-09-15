@@ -1,88 +1,103 @@
-import { Challenge, DayEntry, RitualType } from './types';
-
-const createDayEntry = (day: number, ritual: RitualType, title: string, microBite: string): DayEntry => ({
-  day,
-  ritual,
-  title,
-  microBite,
-});
-
-// Morning ritual entries for 30 days
-const morningEntries: DayEntry[] = [
-  createDayEntry(1, "morning", "Mindful Awakening", "Take 3 deep breaths before getting out of bed"),
-  createDayEntry(2, "morning", "Gratitude Start", "Name one thing you're grateful for today"),
-  createDayEntry(3, "morning", "Intention Setting", "Set one clear intention for your day"),
-  createDayEntry(4, "morning", "Body Check-in", "Notice how your body feels without judgment"),
-  createDayEntry(5, "morning", "Positive Affirmation", "Say one kind thing to yourself"),
-  createDayEntry(6, "morning", "Mindful Movement", "Stretch or move your body for 2 minutes"),
-  createDayEntry(7, "morning", "Present Moment", "Notice 3 things you can see, hear, and feel"),
-  createDayEntry(8, "morning", "Energy Assessment", "Rate your energy level from 1-10"),
-  createDayEntry(9, "morning", "Purpose Reminder", "Recall why today matters to you"),
-  createDayEntry(10, "morning", "Breath Work", "Practice 4-7-8 breathing technique"),
-  createDayEntry(11, "morning", "Visualization", "Picture your ideal day unfolding"),
-  createDayEntry(12, "morning", "Self-Compassion", "Treat yourself like a good friend"),
-  createDayEntry(13, "morning", "Nature Connection", "Look outside and appreciate something natural"),
-  createDayEntry(14, "morning", "Weekly Reflection", "What's one thing you've learned this week?"),
-  createDayEntry(15, "morning", "Mindful Hydration", "Drink water slowly and mindfully"),
-  createDayEntry(16, "morning", "Priority Focus", "Choose your most important task for today"),
-  createDayEntry(17, "morning", "Body Appreciation", "Thank your body for carrying you"),
-  createDayEntry(18, "morning", "Emotional Check", "Name your current emotion without changing it"),
-  createDayEntry(19, "morning", "Growth Mindset", "Embrace one challenge as an opportunity"),
-  createDayEntry(20, "morning", "Connection Intention", "Plan to genuinely connect with someone"),
-  createDayEntry(21, "morning", "Mindful Preparation", "Prepare for your day with full attention"),
-  createDayEntry(22, "morning", "Inner Wisdom", "Ask yourself: What do I need today?"),
-  createDayEntry(23, "morning", "Strength Recognition", "Acknowledge one of your strengths"),
-  createDayEntry(24, "morning", "Present Gift", "Appreciate this moment as it is"),
-  createDayEntry(25, "morning", "Learning Mindset", "Approach today with curiosity"),
-  createDayEntry(26, "morning", "Heart Opening", "Send loving thoughts to yourself"),
-  createDayEntry(27, "morning", "Energy Alignment", "Align your actions with your values"),
-  createDayEntry(28, "morning", "Peaceful Start", "Begin your day from a place of calm"),
-  createDayEntry(29, "morning", "Transformation", "Notice how you've grown these 29 days"),
-  createDayEntry(30, "morning", "Celebration", "Celebrate completing your 30-day journey"),
-];
-
-// Evening ritual entries for 30 days
-const eveningEntries: DayEntry[] = [
-  createDayEntry(1, "evening", "Day Review", "Reflect on one positive moment from today"),
-  createDayEntry(2, "evening", "Gratitude Practice", "Write down 3 things you're grateful for"),
-  createDayEntry(3, "evening", "Letting Go", "Release one worry or stress from today"),
-  createDayEntry(4, "evening", "Achievement Recognition", "Acknowledge one thing you accomplished"),
-  createDayEntry(5, "evening", "Emotional Processing", "Name and accept your feelings from today"),
-  createDayEntry(6, "evening", "Body Relaxation", "Tense and release each muscle group"),
-  createDayEntry(7, "evening", "Week Appreciation", "What made this week special?"),
-  createDayEntry(8, "evening", "Learning Extraction", "What did you learn about yourself today?"),
-  createDayEntry(9, "evening", "Forgiveness Practice", "Forgive yourself for any mistakes"),
-  createDayEntry(10, "evening", "Connection Appreciation", "Appreciate someone who touched your day"),
-  createDayEntry(11, "evening", "Progress Recognition", "Notice how you've grown recently"),
-  createDayEntry(12, "evening", "Calm Breathing", "Practice slow, deep breathing for 2 minutes"),
-  createDayEntry(13, "evening", "Tomorrow's Intention", "Set a gentle intention for tomorrow"),
-  createDayEntry(14, "evening", "Bi-weekly Reflection", "What patterns do you notice in yourself?"),
-  createDayEntry(15, "evening", "Self-Compassion", "Offer yourself the same kindness you'd give a friend"),
-  createDayEntry(16, "evening", "Energy Release", "Mentally release the day's tensions"),
-  createDayEntry(17, "evening", "Blessing Count", "Count your blessings, big and small"),
-  createDayEntry(18, "evening", "Inner Peace", "Find one moment of peace within yourself"),
-  createDayEntry(19, "evening", "Growth Acknowledgment", "Recognize one way you challenged yourself"),
-  createDayEntry(20, "evening", "Love Expression", "Send love to yourself and others"),
-  createDayEntry(21, "evening", "Wisdom Gathering", "What wisdom did today offer you?"),
-  createDayEntry(22, "evening", "Peaceful Transition", "Consciously transition from day to night"),
-  createDayEntry(23, "evening", "Strength Appreciation", "Appreciate your resilience today"),
-  createDayEntry(24, "evening", "Gentle Closure", "Gently close today with acceptance"),
-  createDayEntry(25, "evening", "Heart Gratitude", "Feel gratitude in your heart center"),
-  createDayEntry(26, "evening", "Rest Preparation", "Prepare your mind and body for rest"),
-  createDayEntry(27, "evening", "Journey Reflection", "Reflect on your transformation journey"),
-  createDayEntry(28, "evening", "Peace Cultivation", "Cultivate inner peace before sleep"),
-  createDayEntry(29, "evening", "Completion Joy", "Feel joy for nearly completing your journey"),
-  createDayEntry(30, "evening", "Celebration & Rest", "Celebrate your commitment and rest peacefully"),
-];
-
-// Combine both morning and evening entries
-const allDayEntries: DayEntry[] = [...morningEntries, ...eveningEntries];
+import { Challenge, DayEntry } from "./types";
 
 export const defaultChallenge: Challenge = {
-  id: "30-day-reset-v1",
+  id: "30-day-reset",
   name: "30-Day Reset",
-  description: "Transform your daily habits with mindful morning and evening rituals that nurture your mind, body, and spirit.",
-  days: allDayEntries,
+  description: "Perform by Day, Recover by Night",
+  days: [
+    // Tag 1–10
+    { day: 1, ritual: "morning", title: "Hydration First", microBite: "Trinke Wasser vor Kaffee – dein Körper verliert über Nacht bis zu 1 Liter Flüssigkeit." },
+    { day: 1, ritual: "evening", title: "Digital Sunset", microBite: "Lege dein Handy 30 Min vor dem Schlaf beiseite – blaues Licht bremst Melatonin." },
+
+    { day: 2, ritual: "morning", title: "Fresh Air", microBite: "Öffne das Fenster: Sonnenlicht & frische Luft regulieren deine innere Uhr." },
+    { day: 2, ritual: "evening", title: "Magnesium Support", microBite: "Magnesium entspannt Muskeln und Nerven – eine sanfte Einladung an den Schlaf." },
+
+    { day: 3, ritual: "morning", title: "Movement Boost", microBite: "5 Minuten Stretching oder Mobility – bringt Kreislauf & Gelenke in Schwung." },
+    { day: 3, ritual: "evening", title: "Cool Down", microBite: "Eine kühlere Raumtemperatur (18–20°C) fördert tiefen Schlaf." },
+
+    { day: 4, ritual: "morning", title: "Mindful Start", microBite: "Schreibe 1 Dankbarkeit auf – positiver Fokus beeinflusst deinen ganzen Tag." },
+    { day: 4, ritual: "evening", title: "Sleep Journal", microBite: "Notiere kurz 3 Gedanken – entlastet den Kopf und reduziert Grübeln." },
+
+    { day: 5, ritual: "morning", title: "Protein Kick", microBite: "Ein kleines Protein-Frühstück stabilisiert Blutzucker & Fokus." },
+    { day: 5, ritual: "evening", title: "Breathing Reset", microBite: "4-7-8 Atemtechnik: 4s ein, 7s halten, 8s aus – senkt Puls & Stress." },
+
+    { day: 6, ritual: "morning", title: "Cold Splash", microBite: "Kaltes Wasser im Gesicht/Dusche aktiviert Nervensystem & Fokus." },
+    { day: 6, ritual: "evening", title: "Warm Ritual", microBite: "Warme Dusche oder Tee signalisiert: jetzt runterfahren." },
+
+    { day: 7, ritual: "morning", title: "Plan the Day", microBite: "3 Prioritäten notieren – gibt Klarheit & Richtung." },
+    { day: 7, ritual: "evening", title: "Consistency Wins", microBite: "Geh möglichst jeden Abend zur gleichen Zeit ins Bett – dein Körper liebt Rhythmus." },
+
+    { day: 8, ritual: "morning", title: "Electrolyte Reset", microBite: "Ein Stick Elektrolyte füllt Speicher & bringt Energie." },
+    { day: 8, ritual: "evening", title: "Screen-Free Zone", microBite: "15 Min ohne Bildschirm vorm Schlaf – Ruhe für Augen & Kopf." },
+
+    { day: 9, ritual: "morning", title: "Sun Exposure", microBite: "10 Min Morgenlicht stabilisieren deinen zirkadianen Rhythmus." },
+    { day: 9, ritual: "evening", title: "Darkness Hack", microBite: "Dimme Lichter am Abend – Dunkelheit = Melatonin-Signal." },
+
+    { day: 10, ritual: "morning", title: "Posture Reset", microBite: "Aufrecht stehen, tief atmen – aktiviert Kreislauf & Präsenz." },
+    { day: 10, ritual: "evening", title: "Bed Only for Sleep", microBite: "Nutze dein Bett nur zum Schlafen – Ort-Routine-Verknüpfung stärkt Schlaf." },
+
+    // Tag 11–20
+    { day: 11, ritual: "morning", title: "Morning Walk", microBite: "10 Min Gehen – Kreislauf an, Kopf klar." },
+    { day: 11, ritual: "evening", title: "Herbal Tea", microBite: "Kamille/Lavendel beruhigen & unterstützen Entspannung." },
+
+    { day: 12, ritual: "morning", title: "Smile Start", microBite: "30 Sekunden bewusst lächeln – trickst dein Gehirn in Positivität." },
+    { day: 12, ritual: "evening", title: "Stretch & Relax", microBite: "Sanfte Dehnung vor dem Schlaf reduziert Muskelspannung." },
+
+    { day: 13, ritual: "morning", title: "Protein Shake", microBite: "Eiweiß am Morgen = langanhaltende Energie & Sättigung." },
+    { day: 13, ritual: "evening", title: "Gratitude Night", microBite: "Schreibe 1 Sache auf, für die du dankbar bist – fördert positiven Schlaf." },
+
+    { day: 14, ritual: "morning", title: "Mindful Breath", microBite: "3 tiefe Atemzüge → mehr Fokus, weniger Stress." },
+    { day: 14, ritual: "evening", title: "Digital Detox", microBite: "1h vor Schlaf keine Socials – Kopf kommt schneller zur Ruhe." },
+
+    { day: 15, ritual: "morning", title: "Citrus Boost", microBite: "Vitamin C unterstützt Immunsystem – starte frisch." },
+    { day: 15, ritual: "evening", title: "Foam Roll", microBite: "5 Min Faszien-Rolling lockert Muskeln & entspannt." },
+
+    { day: 16, ritual: "morning", title: "Gratitude Note", microBite: "Notiere 1 kleine Freude von gestern – shiftet deinen Fokus." },
+    { day: 16, ritual: "evening", title: "Box Breathing", microBite: "4s ein, 4s halten, 4s aus, 4s halten – beruhigt das Nervensystem." },
+
+    { day: 17, ritual: "morning", title: "Protein + Electrolyte", microBite: "Kombi aus Eiweiß & Mineralien = stabiler Start." },
+    { day: 17, ritual: "evening", title: "Candlelight", microBite: "Kerzenlicht statt Deckenlampe → sanftes Schlaf-Signal." },
+
+    { day: 18, ritual: "morning", title: "Power Playlist", microBite: "1 Lieblingssong am Morgen hebt sofort die Stimmung." },
+    { day: 18, ritual: "evening", title: "Sleep Prep", microBite: "Bett frisch & Zimmer aufgeräumt → schneller runterkommen." },
+
+    { day: 19, ritual: "morning", title: "Early Steps", microBite: "1.000 Schritte vor 10 Uhr – Aktivierung pur." },
+    { day: 19, ritual: "evening", title: "Cool Shower", microBite: "Kurze kühle Dusche senkt Kerntemperatur für besseren Schlaf." },
+
+    { day: 20, ritual: "morning", title: "Vision Note", microBite: "1 Tagesziel notieren – mentaler Fokus-Booster." },
+    { day: 20, ritual: "evening", title: "Aromatherapy", microBite: "Lavendelduft reduziert Stress & fördert Schlafqualität." },
+
+    // Tag 21–30
+    { day: 21, ritual: "morning", title: "Hydration Habit", microBite: "Glas Wasser direkt nach dem Aufstehen = Energy Trigger." },
+    { day: 21, ritual: "evening", title: "Read a Page", microBite: "1 Seite Buch statt Handy – dein Gehirn beruhigt sich." },
+
+    { day: 22, ritual: "morning", title: "Stretch Spine", microBite: "Mobilisiere Rücken & Nacken – verhindert Büroverspannungen." },
+    { day: 22, ritual: "evening", title: "Tea & Breath", microBite: "Kräutertee + 3 tiefe Atemzüge = Schlafbrücke." },
+
+    { day: 23, ritual: "morning", title: "Morning Light", microBite: "Ans Fenster gehen – Licht synchronisiert deine innere Uhr." },
+    { day: 23, ritual: "evening", title: "Warm Socks", microBite: "Warme Füße helfen, schneller einzuschlafen." },
+
+    { day: 24, ritual: "morning", title: "Body Scan", microBite: "2 Min Körper-Scan: Aufmerksamkeit von Kopf bis Fuß." },
+    { day: 24, ritual: "evening", title: "Phone Away", microBite: "Lege das Handy in ein anderes Zimmer → besserer Tiefschlaf." },
+
+    { day: 25, ritual: "morning", title: "Mini Workout", microBite: "10 Push-ups oder Squats – Weckruf für Körper & Geist." },
+    { day: 25, ritual: "evening", title: "Stretch Legs", microBite: "Bein-Dehnung senkt Muskelspannung → leichteres Einschlafen." },
+
+    { day: 26, ritual: "morning", title: "Cold Drink", microBite: "Ein kühles Glas Wasser belebt sofort." },
+    { day: 26, ritual: "evening", title: "Light Snack", microBite: "Klein & eiweißreich (z. B. Joghurt) → stabiler Blutzucker." },
+
+    { day: 27, ritual: "morning", title: "Coffee Delay", microBite: "Warte ~60 Min mit Kaffee – besserer Cortisolrhythmus." },
+    { day: 27, ritual: "evening", title: "Dark Room", microBite: "Verdunkle dein Schlafzimmer → tieferer Schlaf." },
+
+    { day: 28, ritual: "morning", title: "Morning Affirmation", microBite: "\"Ich bin bereit für den Tag.\" – kurzer mentaler Anker." },
+    { day: 28, ritual: "evening", title: "Bedtime Routine", microBite: "Immer gleiche 3 Schritte (Zähne, Tee, Journal) = Schlafanker." },
+
+    { day: 29, ritual: "morning", title: "Focus Breathing", microBite: "2 Min Atemübung – Fokus & Energie." },
+    { day: 29, ritual: "evening", title: "Silent 5", microBite: "5 Min Stille vorm Schlaf – weniger Gedankenkarussell." },
+
+    { day: 30, ritual: "morning", title: "Reset Reflection", microBite: "Was hat in 30 Tagen am meisten geholfen? Kurz notieren." },
+    { day: 30, ritual: "evening", title: "Celebrate Sleep", microBite: "Feiere deinen Fortschritt – Schlaf ist dein Superpower-Finale." }
+  ]
 };
 
 export const challenges: Challenge[] = [defaultChallenge];
