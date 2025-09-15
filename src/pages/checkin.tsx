@@ -106,13 +106,15 @@ const CheckInPage: React.FC = () => {
 
   const handlePreviousDay = () => {
     if (dayNum > 1) {
-      router.push(`/checkin?challengeId=${challengeIdStr}&day=${dayNum - 1}&test=true`);
+      const testParam = testMode ? '&test=true' : '';
+      router.push(`/checkin?challengeId=${challengeIdStr}&day=${dayNum - 1}${testParam}`);
     }
   };
 
   const handleNextDay = () => {
     if (dayNum < 30) {
-      router.push(`/checkin?challengeId=${challengeIdStr}&day=${dayNum + 1}&test=true`);
+      const testParam = testMode ? '&test=true' : '';
+      router.push(`/checkin?challengeId=${challengeIdStr}&day=${dayNum + 1}${testParam}`);
     }
   };
 
@@ -169,18 +171,19 @@ const CheckInPage: React.FC = () => {
             )}
           </div>
 
-          {/* Test Mode Navigation */}
-          {testMode && (
-            <div className="flex justify-between items-center">
-              <Button
-                variant="ghost"
-                size="sm"
-                onClick={handlePreviousDay}
-                disabled={dayNum <= 1}
-                className="flex items-center gap-2"
-              >
-                ← Previous Day
-              </Button>
+          {/* Day Navigation */}
+          <div className="flex justify-between items-center">
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={handlePreviousDay}
+              disabled={dayNum <= 1}
+              className="flex items-center gap-2"
+            >
+              ← Previous Day
+            </Button>
+            
+            {testMode && (
               <Button
                 variant="ghost"
                 size="sm"
@@ -189,17 +192,18 @@ const CheckInPage: React.FC = () => {
               >
                 Exit Test Mode
               </Button>
-              <Button
-                variant="ghost"
-                size="sm"
-                onClick={handleNextDay}
-                disabled={dayNum >= 30}
-                className="flex items-center gap-2"
-              >
-                Next Day →
-              </Button>
-            </div>
-          )}
+            )}
+            
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={handleNextDay}
+              disabled={dayNum >= 30}
+              className="flex items-center gap-2"
+            >
+              Next Day →
+            </Button>
+          </div>
 
           {/* Ritual Tabs */}
           <RitualTabs
