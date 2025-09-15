@@ -168,3 +168,5 @@ This project is open source and available under the [MIT License](LICENSE).
 ---
 
 **Start your transformation journey today! 🌱**
+
+*Last updated: $(date)*
