@@ -151,7 +151,7 @@ export const getCurrentDay = (challengeId: string): number => {
   const diffTime = Math.abs(currentDate.getTime() - startDate.getTime());
   const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
   
-  return Math.min(diffDays, 30); // Cap at 30 days
+  return Math.max(1, Math.min(diffDays, 30)); // Ensure at least day 1, cap at 30 days
 };
 
 // Check if user has started any challenge
