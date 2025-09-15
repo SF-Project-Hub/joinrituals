@@ -51,6 +51,9 @@ const CheckInPage: React.FC = () => {
   const dayEntries = getDayEntries(challengeIdStr, dayNum);
   const currentEntry = dayEntries[activeTab];
 
+  // Debug logging
+  console.log('Debug:', { challengeIdStr, dayNum, challenge, dayEntries, currentEntry });
+
   if (!challenge || !currentEntry) {
     return (
       <div className="min-h-screen flex items-center justify-center p-4">

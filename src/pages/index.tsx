@@ -10,7 +10,9 @@ import {
   getChallengeProgress, 
   getCurrentDay, 
   getStats,
-  isCompleted
+  isCompleted,
+  loadProgress,
+  saveProgress
 } from '../lib/state';
 import { defaultChallenge } from '../lib/challenges';
 import { uiCopy } from '../lib/uiCopy';
@@ -47,6 +49,25 @@ const HomePage: React.FC = () => {
 
   const handleStartChallenge = () => {
     router.push('/onboarding');
+  };
+
+  const handleSkipOnboarding = () => {
+    // Initialize challenge without onboarding
+    const challengeId = defaultChallenge.id;
+    const progress = getChallengeProgress(challengeId);
+    if (!progress.startedAt) {
+      // Start the challenge
+      const newProgress = {
+        ...progress,
+        startedAt: new Date().toISOString(),
+      };
+      // Save progress
+      const allProgress = loadProgress();
+      allProgress[challengeId] = newProgress;
+      saveProgress(allProgress);
+    }
+    // Refresh the page to show the challenge
+    window.location.reload();
   };
 
   const handleMorningCheckIn = () => {
@@ -91,14 +112,24 @@ const HomePage: React.FC = () => {
                 Build lasting change through mindful morning and evening rituals. 
                 Just 30 days to create the foundation for a better you.
               </p>
-              <Button 
-                variant="primary" 
-                size="lg" 
-                onClick={handleStartChallenge}
-                className="w-full"
-              >
-                {uiCopy.onboarding.startButton}
-              </Button>
+              <div className="space-y-3">
+                <Button 
+                  variant="primary" 
+                  size="lg" 
+                  onClick={handleStartChallenge}
+                  className="w-full"
+                >
+                  {uiCopy.onboarding.startButton}
+                </Button>
+                <Button 
+                  variant="ghost" 
+                  size="sm" 
+                  onClick={handleSkipOnboarding}
+                  className="w-full text-orange-600 dark:text-orange-400"
+                >
+                  🧪 Skip Onboarding (Test Mode)
+                </Button>
+              </div>
             </Card>
           </div>
         </div>
