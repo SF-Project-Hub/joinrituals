@@ -21,6 +21,7 @@ const CheckInPage: React.FC = () => {
   const [morningCompleted, setMorningCompleted] = useState(false);
   const [eveningCompleted, setEveningCompleted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [testMode, setTestMode] = useState(false);
 
   const challengeIdStr = challengeId as string;
   const dayNum = parseInt(day as string);
@@ -33,8 +34,16 @@ const CheckInPage: React.FC = () => {
 
   useEffect(() => {
     if (challengeIdStr && dayNum) {
-      setMorningCompleted(isCompleted(challengeIdStr, dayNum, 'morning'));
-      setEveningCompleted(isCompleted(challengeIdStr, dayNum, 'evening'));
+      // Check if test mode is enabled (via URL parameter or localStorage)
+      const urlParams = new URLSearchParams(window.location.search);
+      const testModeParam = urlParams.get('test') === 'true';
+      const testModeStorage = localStorage.getItem('test-mode') === 'true';
+      setTestMode(testModeParam || testModeStorage);
+      
+      if (!testModeParam && !testModeStorage) {
+        setMorningCompleted(isCompleted(challengeIdStr, dayNum, 'morning'));
+        setEveningCompleted(isCompleted(challengeIdStr, dayNum, 'evening'));
+      }
     }
   }, [challengeIdStr, dayNum]);
 
@@ -92,6 +101,36 @@ const CheckInPage: React.FC = () => {
     router.push('/');
   };
 
+  const handlePreviousDay = () => {
+    if (dayNum > 1) {
+      router.push(`/checkin/${challengeIdStr}/${dayNum - 1}?test=true`);
+    }
+  };
+
+  const handleNextDay = () => {
+    if (dayNum < 30) {
+      router.push(`/checkin/${challengeIdStr}/${dayNum + 1}?test=true`);
+    }
+  };
+
+  const toggleTestMode = () => {
+    const newTestMode = !testMode;
+    setTestMode(newTestMode);
+    localStorage.setItem('test-mode', newTestMode.toString());
+    
+    if (newTestMode) {
+      // Enable test mode - add test parameter to URL
+      const url = new URL(window.location.href);
+      url.searchParams.set('test', 'true');
+      window.history.replaceState({}, '', url.toString());
+    } else {
+      // Disable test mode - remove test parameter
+      const url = new URL(window.location.href);
+      url.searchParams.delete('test');
+      window.history.replaceState({}, '', url.toString());
+    }
+  };
+
   return (
     <>
       <Head>
@@ -120,7 +159,44 @@ const CheckInPage: React.FC = () => {
             <p className="text-apple-gray-medium">
               Day {dayNum} of 30
             </p>
+            {testMode && (
+              <p className="text-xs text-orange-600 dark:text-orange-400 mt-1">
+                🧪 Test Mode - No data saved
+              </p>
+            )}
           </div>
+
+          {/* Test Mode Navigation */}
+          {testMode && (
+            <div className="flex justify-between items-center">
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={handlePreviousDay}
+                disabled={dayNum <= 1}
+                className="flex items-center gap-2"
+              >
+                ← Previous Day
+              </Button>
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={toggleTestMode}
+                className="text-orange-600 dark:text-orange-400"
+              >
+                Exit Test Mode
+              </Button>
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={handleNextDay}
+                disabled={dayNum >= 30}
+                className="flex items-center gap-2"
+              >
+                Next Day →
+              </Button>
+            </div>
+          )}
 
           {/* Ritual Tabs */}
           <RitualTabs
@@ -173,17 +249,42 @@ const CheckInPage: React.FC = () => {
             ) : (
               <div className="text-center space-y-4">
                 <p className="text-apple-gray-medium">
-                  Take a moment to practice this ritual mindfully.
+                  {testMode 
+                    ? "In test mode - you can navigate freely without saving progress."
+                    : "Take a moment to practice this ritual mindfully."
+                  }
                 </p>
-                <Button
-                  variant="primary"
-                  size="lg"
-                  onClick={handleMarkComplete}
-                  isLoading={isSubmitting}
-                  className="w-full"
-                >
-                  {isSubmitting ? 'Completing...' : uiCopy.checkin.markComplete}
-                </Button>
+                {testMode ? (
+                  <div className="space-y-2">
+                    <Button
+                      variant="secondary"
+                      size="lg"
+                      onClick={() => {
+                        if (activeTab === 'morning') {
+                          setMorningCompleted(true);
+                        } else {
+                          setEveningCompleted(true);
+                        }
+                      }}
+                      className="w-full"
+                    >
+                      Mark as Complete (Test)
+                    </Button>
+                    <p className="text-xs text-orange-600 dark:text-orange-400">
+                      This won't be saved permanently
+                    </p>
+                  </div>
+                ) : (
+                  <Button
+                    variant="primary"
+                    size="lg"
+                    onClick={handleMarkComplete}
+                    isLoading={isSubmitting}
+                    className="w-full"
+                  >
+                    {isSubmitting ? 'Completing...' : uiCopy.checkin.markComplete}
+                  </Button>
+                )}
               </div>
             )}
           </Card>

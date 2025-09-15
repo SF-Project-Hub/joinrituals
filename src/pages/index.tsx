@@ -145,13 +145,24 @@ const HomePage: React.FC = () => {
               </ProgressRing>
             </div>
             
-            <Button 
-              variant="outline" 
-              size="sm" 
-              onClick={handleViewProgress}
-            >
-              View Progress
-            </Button>
+            <div className="flex gap-2">
+              <Button 
+                variant="outline" 
+                size="sm" 
+                onClick={handleViewProgress}
+                className="flex-1"
+              >
+                View Progress
+              </Button>
+              <Button 
+                variant="ghost" 
+                size="sm" 
+                onClick={() => router.push(`/checkin/${defaultChallenge.id}/1?test=true`)}
+                className="text-orange-600 dark:text-orange-400 border-orange-200 dark:border-orange-800"
+              >
+                🧪 Test Mode
+              </Button>
+            </div>
           </Card>
 
           {/* Today's Rituals */}
