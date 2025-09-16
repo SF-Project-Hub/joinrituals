@@ -289,21 +289,21 @@ const CheckInPage: React.FC = () => {
                   </h2>
                   {activeTab === 'morning' && dayNum === 1 ? (
                     <div className="flex justify-center gap-3 mt-3">
-                      <div className="bg-blue-100 dark:bg-blue-900/30 px-3 py-1 rounded-full flex items-center gap-1">
-                        <span className="text-blue-600 dark:text-blue-400">⏱️</span>
-                        <span className="text-xs font-medium text-blue-700 dark:text-blue-300">7 Min</span>
+                      <div className="bg-gray-100 dark:bg-gray-800/50 px-3 py-1 rounded-full flex items-center gap-1 border border-gray-200 dark:border-gray-700">
+                        <span className="text-gray-600 dark:text-gray-400">⏱️</span>
+                        <span className="text-xs font-medium text-gray-700 dark:text-gray-300">7 Min</span>
                       </div>
-                      <div className="bg-yellow-100 dark:bg-yellow-900/30 px-3 py-1 rounded-full flex items-center gap-1">
-                        <span className="text-yellow-600 dark:text-yellow-400">📊</span>
+                      <div className="bg-gray-100 dark:bg-gray-800/50 px-3 py-1 rounded-full flex items-center gap-1 border border-gray-200 dark:border-gray-700">
+                        <span className="text-gray-600 dark:text-gray-400">📊</span>
                         <div className="flex items-center gap-0.5">
-                          <div className="w-1.5 h-1.5 bg-yellow-600 dark:bg-yellow-400 rounded-full"></div>
-                          <div className="w-1.5 h-1.5 bg-yellow-600 dark:bg-yellow-400 rounded-full"></div>
-                          <div className="w-1.5 h-1.5 bg-yellow-600 dark:bg-yellow-400 rounded-full"></div>
+                          <div className="w-1.5 h-1.5 bg-gray-600 dark:bg-gray-400 rounded-full"></div>
+                          <div className="w-1.5 h-1.5 bg-gray-600 dark:bg-gray-400 rounded-full"></div>
+                          <div className="w-1.5 h-1.5 bg-gray-600 dark:bg-gray-400 rounded-full"></div>
                         </div>
                       </div>
-                      <div className="bg-purple-100 dark:bg-purple-900/30 px-3 py-1 rounded-full flex items-center gap-1">
-                        <span className="text-purple-600 dark:text-purple-400">✨</span>
-                        <span className="text-xs font-medium text-purple-700 dark:text-purple-300">Energisierend</span>
+                      <div className="bg-gray-100 dark:bg-gray-800/50 px-3 py-1 rounded-full flex items-center gap-1 border border-gray-200 dark:border-gray-700">
+                        <span className="text-gray-600 dark:text-gray-400">✨</span>
+                        <span className="text-xs font-medium text-gray-700 dark:text-gray-300">Energisierend</span>
                       </div>
                     </div>
                   ) : activeTab === 'morning' ? (
@@ -378,10 +378,16 @@ const CheckInPage: React.FC = () => {
                 {currentEntry.steps.map((step) => (
                   <div key={step.id} className={`rounded-lg border transition-all duration-300 relative ${
                     step.id === currentStep
-                      ? 'bg-gray-50 dark:bg-gray-800/50 border-gray-300 dark:border-gray-600 shadow-lg'
+                      ? activeTab === 'morning' 
+                        ? 'bg-white/80 dark:bg-gray-800/50 border-gray-300 dark:border-gray-600 shadow-lg'
+                        : 'bg-gray-50 dark:bg-gray-800/50 border-gray-300 dark:border-gray-600 shadow-lg'
                       : step.id < currentStep
-                        ? 'bg-gray-100 dark:bg-gray-800/30 border-gray-200 dark:border-gray-700'
-                        : 'bg-gray-50 dark:bg-gray-800/20 border-gray-200 dark:border-gray-700 opacity-50'
+                        ? activeTab === 'morning'
+                          ? 'bg-white/60 dark:bg-gray-800/30 border-gray-200 dark:border-gray-700'
+                          : 'bg-gray-100 dark:bg-gray-800/30 border-gray-200 dark:border-gray-700'
+                        : activeTab === 'morning'
+                          ? 'bg-white/40 dark:bg-gray-800/20 border-gray-200 dark:border-gray-700 opacity-50'
+                          : 'bg-gray-50 dark:bg-gray-800/20 border-gray-200 dark:border-gray-700 opacity-50'
                   }`}>
                     {step.id < currentStep && (
                       <div className="absolute inset-0 bg-black/10 dark:bg-black/20 rounded-lg pointer-events-none"></div>
@@ -447,26 +453,26 @@ const CheckInPage: React.FC = () => {
                     {expandedSteps.includes(step.id) && (
                       <div className="px-4 pb-4 border-t border-gray-200 dark:border-gray-700 bg-white/50 dark:bg-gray-800/50">
                         <div className="pt-4 space-y-3">
-                          {/* So geht's */}
-                          {step.tips && (
-                            <div className="bg-gray-50 dark:bg-gray-800/50 p-3 rounded-lg border border-gray-200 dark:border-gray-700">
-                              <div className="flex items-start gap-2">
-                                <span className="text-gray-600 dark:text-gray-400">💡</span>
-                                <div>
-                                  <p className="text-sm font-medium text-gray-800 dark:text-gray-200 mb-1">
-                                    So geht's
-                                  </p>
-                                  <p className="text-xs text-gray-600 dark:text-gray-400">
-                                    {step.tips}
-                                  </p>
-                                </div>
+                        {/* So geht's */}
+                        {step.tips && (
+                          <div className={`p-3 rounded-lg border ${activeTab === 'morning' ? 'bg-white/70 dark:bg-gray-800/50 border-gray-200 dark:border-gray-700' : 'bg-gray-50 dark:bg-gray-800/50 border-gray-200 dark:border-gray-700'}`}>
+                            <div className="flex items-start gap-2">
+                              <span className="text-gray-600 dark:text-gray-400">💡</span>
+                              <div>
+                                <p className="text-sm font-medium text-gray-800 dark:text-gray-200 mb-1">
+                                  So geht's
+                                </p>
+                                <p className="text-xs text-gray-600 dark:text-gray-400">
+                                  {step.tips}
+                                </p>
                               </div>
                             </div>
-                          )}
+                          </div>
+                        )}
 
                           {/* Warum */}
                           {step.why && (
-                            <div className="bg-gray-50 dark:bg-gray-800/50 p-3 rounded-lg border border-gray-200 dark:border-gray-700">
+                            <div className={`p-3 rounded-lg border ${activeTab === 'morning' ? 'bg-white/70 dark:bg-gray-800/50 border-gray-200 dark:border-gray-700' : 'bg-gray-50 dark:bg-gray-800/50 border-gray-200 dark:border-gray-700'}`}>
                               <div className="flex items-start gap-2">
                                 <span className="text-gray-600 dark:text-gray-400">🧠</span>
                                 <div>
@@ -484,7 +490,7 @@ const CheckInPage: React.FC = () => {
                           
                           {/* Audio Player for Step 3 */}
                           {step.id === 3 && step.hasAudio && step.id === currentStep && (
-                            <div className="bg-gray-50 dark:bg-gray-800/50 p-3 rounded-lg border border-gray-200 dark:border-gray-700">
+                            <div className={`p-3 rounded-lg border ${activeTab === 'morning' ? 'bg-white/70 dark:bg-gray-800/50 border-gray-200 dark:border-gray-700' : 'bg-gray-50 dark:bg-gray-800/50 border-gray-200 dark:border-gray-700'}`}>
                               <div className="flex items-start gap-2">
                                 <span className="text-gray-600 dark:text-gray-400">🎧</span>
                                 <div className="flex-1">
@@ -509,7 +515,11 @@ const CheckInPage: React.FC = () => {
                             <div className="pt-3 border-t border-gray-200 dark:border-gray-700">
                               <button
                                 onClick={() => handleStepComplete(step.id)}
-                                className="w-full bg-white/20 backdrop-blur-sm border border-white/30 hover:bg-white/30 text-white text-sm font-medium py-2 px-4 rounded-md transition-all duration-200 hover:shadow-sm active:scale-95"
+                                className={`w-full text-sm font-medium py-2 px-4 rounded-md transition-all duration-200 hover:shadow-sm active:scale-95 ${
+                                  activeTab === 'morning' 
+                                    ? 'bg-gray-800 hover:bg-gray-700 text-white border border-gray-700' 
+                                    : 'bg-white/20 backdrop-blur-sm border border-white/30 hover:bg-white/30 text-white'
+                                }`}
                                 disabled={isSubmitting}
                               >
                                 {isSubmitting ? (
