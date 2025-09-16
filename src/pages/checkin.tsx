@@ -355,13 +355,16 @@ const CheckInPage: React.FC = () => {
 
                 {/* Current Step */}
                 {currentEntry.steps.map((step) => (
-                  <div key={step.id} className={`rounded-lg border transition-all duration-300 ${
+                  <div key={step.id} className={`rounded-lg border transition-all duration-300 relative ${
                     step.id === currentStep
                       ? 'bg-gray-50 dark:bg-gray-800/50 border-gray-300 dark:border-gray-600 shadow-lg'
                       : step.id < currentStep
                         ? 'bg-gray-100 dark:bg-gray-800/30 border-gray-200 dark:border-gray-700'
                         : 'bg-gray-50 dark:bg-gray-800/20 border-gray-200 dark:border-gray-700 opacity-50'
                   }`}>
+                    {step.id < currentStep && (
+                      <div className="absolute inset-0 bg-black/10 dark:bg-black/20 rounded-lg pointer-events-none"></div>
+                    )}
                     {/* Step Header - Clickable Area */}
                     <div 
                       className={`p-4 cursor-pointer transition-all duration-200 ${
@@ -373,14 +376,12 @@ const CheckInPage: React.FC = () => {
                     >
                       <div className="flex items-center justify-between">
                         <div className="flex items-center gap-3 flex-1">
-                          {step.imageUrl ? (
+                          {step.imageUrl && (
                             <img 
                               src={step.imageUrl} 
                               alt={step.title}
                               className="w-12 h-12 rounded-lg object-cover shadow-sm"
                             />
-                          ) : (
-                            <span className="text-lg">{step.icon}</span>
                           )}
                           <div className="flex-1">
                             <h3 className={`font-medium ${
@@ -411,11 +412,11 @@ const CheckInPage: React.FC = () => {
                         <div className="flex items-center gap-2">
                           {/* Status Indicator */}
                           {step.id < currentStep ? (
-                            <div className="text-gray-600 dark:text-gray-400 text-2xl">✅</div>
+                            <div className="text-green-600 dark:text-green-400 text-sm font-medium">Erledigt</div>
                           ) : step.id === currentStep ? (
-                            <div className="text-gray-800 dark:text-gray-200 text-2xl">🎯</div>
+                            <div className="text-gray-800 dark:text-gray-200 text-sm font-medium">Aktiv</div>
                           ) : (
-                            <div className="text-gray-400 text-2xl">⏳</div>
+                            <div className="text-gray-400 text-sm font-medium">Warten</div>
                           )}
                         </div>
                       </div>
@@ -487,19 +488,16 @@ const CheckInPage: React.FC = () => {
                             <div className="pt-3 border-t border-gray-200 dark:border-gray-700">
                               <button
                                 onClick={() => handleStepComplete(step.id)}
-                                className="w-full bg-gray-100 hover:bg-gray-200 dark:bg-gray-700 dark:hover:bg-gray-600 text-gray-700 dark:text-gray-300 text-sm font-medium py-2 px-4 rounded-md transition-all duration-200 hover:shadow-sm active:scale-95 border border-gray-300 dark:border-gray-600"
+                                className="w-full bg-green-600 hover:bg-green-700 text-white text-sm font-medium py-2 px-4 rounded-md transition-all duration-200 hover:shadow-sm active:scale-95"
                                 disabled={isSubmitting}
                               >
                                 {isSubmitting ? (
                                   <div className="flex items-center justify-center gap-2">
-                                    <div className="animate-spin h-3 w-3 border-2 border-gray-400 border-t-transparent rounded-full"></div>
+                                    <div className="animate-spin h-3 w-3 border-2 border-white border-t-transparent rounded-full"></div>
                                     <span>Wird abgeschlossen...</span>
                                   </div>
                                 ) : (
-                                  <div className="flex items-center justify-center gap-1">
-                                    <span className="text-xs">{step.id === 3 ? '✨' : '✓'}</span>
-                                    <span>{step.id === 3 ? 'Ritual abschließen' : 'Erledigt'}</span>
-                                  </div>
+                                  <span>{step.id === 3 ? 'Ritual abschließen' : 'Erledigt'}</span>
                                 )}
                               </button>
                             </div>

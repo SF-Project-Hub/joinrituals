@@ -25,7 +25,7 @@ export const defaultChallenge: Challenge = {
           title: "Kerze anzünden",
           description: "",
           duration: "1 Min",
-          icon: "🕯️",
+          icon: "",
           imageUrl: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=300&h=200&fit=crop&crop=center",
           tips: "Zünde eine Kerze an und stelle sie sichtbar hin.",
           why: "Der sensorische Trigger signalisiert: Der Tag ist vorbei – dein Körper darf zur Ruhe kommen."
@@ -35,7 +35,7 @@ export const defaultChallenge: Challenge = {
           title: "Sleep Stick trinken",
           description: "",
           duration: "2 Min",
-          icon: "🥤",
+          icon: "",
           imageUrl: "https://images.unsplash.com/photo-1544148103-0773bf10d330?w=300&h=200&fit=crop&crop=center",
           tips: "Bereite dir ein Glas Wasser mit dem Stick zu und trinke ihn langsam.",
           why: "Hydration + Magnesium entspannen Muskeln und Nervensystem – dein Körper schaltet in den Ruhemodus."
@@ -45,7 +45,7 @@ export const defaultChallenge: Challenge = {
           title: "Box Breathing (5 Min)",
           description: "",
           duration: "5 Min",
-          icon: "🎧",
+          icon: "",
           imageUrl: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=300&h=200&fit=crop&crop=center",
           hasAudio: true,
           tips: "Atme 4 Sekunden ein, halte 4 Sekunden, atme 4 Sekunden aus, halte 4 Sekunden – wiederhole.",
