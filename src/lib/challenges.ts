@@ -12,7 +12,7 @@ export const defaultChallenge: Challenge = {
       ritual: "evening",
       title: "Dein Abendritual zum Loslassen",
       microBite: "Lass den Tag hinter dir – dein Körper bereitet sich jetzt auf erholsamen Schlaf vor.",
-      headerImageUrl: "https://images.unsplash.com/photo-1446776877081-d282a0f896e2?w=400&h=200&fit=crop&crop=center",
+      headerImageUrl: "/header-image.jpg",
       action: "Handy weglegen (1 Min)",
       actionDescription: "Sensorischer Trigger → dein Signal: Der Tag ist vorbei.",
       product: "Relax-Stick trinken (2 Min)",
