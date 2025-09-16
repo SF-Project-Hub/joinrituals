@@ -5,6 +5,9 @@ export type DayEntry = {
   ritual: RitualType;
   title: string;
   microBite: string;
+  action?: string;
+  product?: string;
+  content?: string;
 };
 
 export type Challenge = {

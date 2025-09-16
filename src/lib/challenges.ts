@@ -7,7 +7,15 @@ export const defaultChallenge: Challenge = {
   days: [
     // Tag 1–10
     { day: 1, ritual: "morning", title: "Hydration First", microBite: "Trinke Wasser vor Kaffee – dein Körper verliert über Nacht bis zu 1 Liter Flüssigkeit." },
-    { day: 1, ritual: "evening", title: "Sleep Stack 1 - Calm Down", microBite: "Action (1 min): Handy weglegen • Product (2 min): Sleep Stick trinken • Content (3 min): Box-Breathing Audio - AUTO DEPLOY TEST" },
+    { 
+      day: 1, 
+      ritual: "evening", 
+      title: "Sleep Stack 1 - Calm Down", 
+      microBite: "Strukturierte Abendroutine für besseren Schlaf",
+      action: "Handy weglegen (1 min)",
+      product: "Sleep Stick trinken (2 min)",
+      content: "Box-Breathing Audio (3 min)"
+    },
 
     { day: 2, ritual: "morning", title: "Fresh Air", microBite: "Öffne das Fenster: Sonnenlicht & frische Luft regulieren deine innere Uhr." },
     { day: 2, ritual: "evening", title: "Magnesium Support", microBite: "Magnesium entspannt Muskeln und Nerven – eine sanfte Einladung an den Schlaf." },

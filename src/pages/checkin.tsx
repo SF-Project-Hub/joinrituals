@@ -240,6 +240,44 @@ const CheckInPage: React.FC = () => {
               </p>
             </div>
 
+            {/* Separate Fields for Action, Product, Content */}
+            {(currentEntry.action || currentEntry.product || currentEntry.content) && (
+              <div className="space-y-3">
+                {currentEntry.action && (
+                  <div className="bg-green-50 dark:bg-green-900/20 rounded-lg p-4 border border-green-200 dark:border-green-800">
+                    <p className="text-sm font-medium text-green-700 dark:text-green-400 mb-1">
+                      🎯 Action
+                    </p>
+                    <p className="text-green-800 dark:text-green-200">
+                      {currentEntry.action}
+                    </p>
+                  </div>
+                )}
+                
+                {currentEntry.product && (
+                  <div className="bg-purple-50 dark:bg-purple-900/20 rounded-lg p-4 border border-purple-200 dark:border-purple-800">
+                    <p className="text-sm font-medium text-purple-700 dark:text-purple-400 mb-1">
+                      🛍️ Product
+                    </p>
+                    <p className="text-purple-800 dark:text-purple-200">
+                      {currentEntry.product}
+                    </p>
+                  </div>
+                )}
+                
+                {currentEntry.content && (
+                  <div className="bg-orange-50 dark:bg-orange-900/20 rounded-lg p-4 border border-orange-200 dark:border-orange-800">
+                    <p className="text-sm font-medium text-orange-700 dark:text-orange-400 mb-1">
+                      🎧 Content
+                    </p>
+                    <p className="text-orange-800 dark:text-orange-200">
+                      {currentEntry.content}
+                    </p>
+                  </div>
+                )}
+              </div>
+            )}
+
             {/* Completion Status */}
             {isCurrentCompleted ? (
               <div className="text-center space-y-4">
