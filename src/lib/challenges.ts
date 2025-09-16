@@ -17,7 +17,31 @@ export const defaultChallenge: Challenge = {
       product: "Sleep Stick trinken (2 Min)",
       productDescription: "Hydration + Magnesium → dein Körper signalisiert Ruhe.",
       content: "Box-Breathing Audio (3 Min)",
-      contentDescription: "Beruhigt deine Gedanken, fährt das Nervensystem runter."
+      contentDescription: "Beruhigt deine Gedanken, fährt das Nervensystem runter.",
+      steps: [
+        {
+          id: 1,
+          title: "Handy weglegen",
+          description: "Sensorischer Trigger → dein Signal: Der Tag ist vorbei.",
+          duration: "1 Min",
+          icon: "🎯"
+        },
+        {
+          id: 2,
+          title: "Sleep Stick trinken",
+          description: "Hydration + Magnesium → dein Körper signalisiert Ruhe.",
+          duration: "2 Min",
+          icon: "🥤"
+        },
+        {
+          id: 3,
+          title: "Box-Breathing Audio",
+          description: "Beruhigt deine Gedanken, fährt das Nervensystem runter.",
+          duration: "3 Min",
+          icon: "🎧",
+          hasAudio: true
+        }
+      ]
     },
 
     { day: 2, ritual: "morning", title: "Fresh Air", microBite: "Öffne das Fenster: Sonnenlicht & frische Luft regulieren deine innere Uhr." },

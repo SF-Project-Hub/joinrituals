@@ -22,6 +22,8 @@ const CheckInPage: React.FC = () => {
   const [eveningCompleted, setEveningCompleted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [testMode, setTestMode] = useState(false);
+  const [currentStep, setCurrentStep] = useState(1);
+  const [completedSteps, setCompletedSteps] = useState<number[]>([]);
 
   const challengeIdStr = challengeId as string;
   const dayNum = parseInt(day as string);
@@ -74,6 +76,20 @@ const CheckInPage: React.FC = () => {
   }
 
   const isCurrentCompleted = activeTab === 'morning' ? morningCompleted : eveningCompleted;
+
+  const handleStepComplete = (stepId: number) => {
+    if (!completedSteps.includes(stepId)) {
+      setCompletedSteps([...completedSteps, stepId]);
+      
+      // Move to next step if not the last one
+      if (stepId < 3) {
+        setCurrentStep(stepId + 1);
+      } else {
+        // All steps completed, mark ritual as complete
+        handleMarkComplete();
+      }
+    }
+  };
 
   const handleMarkComplete = async () => {
     if (isCurrentCompleted) return;
@@ -261,48 +277,150 @@ const CheckInPage: React.FC = () => {
               </p>
             </div>
 
-            {/* Separate Fields for Action, Product, Content */}
-            {(currentEntry.action || currentEntry.product || currentEntry.content) && (
-              <div className="space-y-3">
-                {currentEntry.action && (
-                  <div className="bg-green-50 dark:bg-green-900/20 rounded-lg p-4 border border-green-200 dark:border-green-800">
-                    <p className="text-sm font-medium text-green-700 dark:text-green-400 mb-2">
-                      🎯 {currentEntry.action}
-                    </p>
-                    {currentEntry.actionDescription && (
-                      <p className="text-xs text-green-600 dark:text-green-300 italic">
-                        {currentEntry.actionDescription}
-                      </p>
-                    )}
+            {/* Step-by-Step Flow for Day 1 Evening */}
+            {dayNum === 1 && activeTab === 'evening' && currentEntry.steps ? (
+              <div className="space-y-4">
+                {/* Progress Bar */}
+                <div className="flex items-center justify-center space-x-2">
+                  {currentEntry.steps.map((_, index) => (
+                    <div key={index} className="flex items-center">
+                      <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-medium ${
+                        completedSteps.includes(index + 1) 
+                          ? 'bg-green-500 text-white' 
+                          : currentStep === index + 1 
+                            ? 'bg-blue-500 text-white' 
+                            : 'bg-gray-200 dark:bg-gray-700 text-gray-500'
+                      }`}>
+                        {completedSteps.includes(index + 1) ? '✅' : index + 1}
+                      </div>
+                      {index < (currentEntry.steps?.length || 0) - 1 && (
+                        <div className={`w-8 h-0.5 mx-2 ${
+                          completedSteps.includes(index + 1) ? 'bg-green-500' : 'bg-gray-200 dark:bg-gray-700'
+                        }`} />
+                      )}
+                    </div>
+                  ))}
+                </div>
+
+                {/* Current Step */}
+                {currentEntry.steps.map((step) => (
+                  <div key={step.id} className={`rounded-lg p-4 border transition-all duration-300 ${
+                    step.id === currentStep
+                      ? 'bg-blue-50 dark:bg-blue-900/20 border-blue-200 dark:border-blue-800 shadow-lg'
+                      : step.id < currentStep
+                        ? 'bg-green-50 dark:bg-green-900/20 border-green-200 dark:border-green-800'
+                        : 'bg-gray-50 dark:bg-gray-800/20 border-gray-200 dark:border-gray-700 opacity-50'
+                  }`}>
+                    <div className="flex items-start justify-between">
+                      <div className="flex-1">
+                        <div className="flex items-center gap-2 mb-2">
+                          <span className="text-lg">{step.icon}</span>
+                          <h3 className={`font-medium ${
+                            step.id === currentStep 
+                              ? 'text-blue-700 dark:text-blue-300' 
+                              : step.id < currentStep 
+                                ? 'text-green-700 dark:text-green-300' 
+                                : 'text-gray-500 dark:text-gray-400'
+                          }`}>
+                            {step.title}
+                          </h3>
+                          <span className="text-xs text-gray-500 dark:text-gray-400">
+                            {step.duration}
+                          </span>
+                        </div>
+                        <p className={`text-sm ${
+                          step.id === currentStep 
+                            ? 'text-blue-600 dark:text-blue-400' 
+                            : step.id < currentStep 
+                              ? 'text-green-600 dark:text-green-400' 
+                              : 'text-gray-400 dark:text-gray-500'
+                        } italic`}>
+                          {step.description}
+                        </p>
+                        
+                        {/* Audio Player for Step 3 */}
+                        {step.id === 3 && step.hasAudio && step.id === currentStep && (
+                          <div className="mt-3 p-3 bg-orange-100 dark:bg-orange-900/30 rounded-lg">
+                            <p className="text-sm text-orange-700 dark:text-orange-300 mb-2">
+                              🎧 Audio-Content wird hier abgespielt
+                            </p>
+                            <div className="flex items-center gap-2">
+                              <button className="bg-orange-500 text-white px-3 py-1 rounded text-sm">
+                                ▶️ Abspielen
+                              </button>
+                              <span className="text-xs text-orange-600 dark:text-orange-400">
+                                3 Min Audio
+                              </span>
+                            </div>
+                          </div>
+                        )}
+                      </div>
+                      
+                      {/* Step Action Button */}
+                      <div className="ml-4">
+                        {step.id < currentStep ? (
+                          <div className="text-green-500 text-2xl">✅</div>
+                        ) : step.id === currentStep ? (
+                          <Button
+                            variant="primary"
+                            size="sm"
+                            onClick={() => handleStepComplete(step.id)}
+                            className="bg-blue-500 hover:bg-blue-600"
+                          >
+                            {step.id === 3 ? '✨ Ritual abschließen' : '✅ Erledigt'}
+                          </Button>
+                        ) : (
+                          <div className="text-gray-400 text-2xl">⏳</div>
+                        )}
+                      </div>
+                    </div>
                   </div>
-                )}
-                
-                {currentEntry.product && (
-                  <div className="bg-purple-50 dark:bg-purple-900/20 rounded-lg p-4 border border-purple-200 dark:border-purple-800">
-                    <p className="text-sm font-medium text-purple-700 dark:text-purple-400 mb-2">
-                      🥤 {currentEntry.product}
-                    </p>
-                    {currentEntry.productDescription && (
-                      <p className="text-xs text-purple-600 dark:text-purple-300 italic">
-                        {currentEntry.productDescription}
-                      </p>
-                    )}
-                  </div>
-                )}
-                
-                {currentEntry.content && (
-                  <div className="bg-orange-50 dark:bg-orange-900/20 rounded-lg p-4 border border-orange-200 dark:border-orange-800">
-                    <p className="text-sm font-medium text-orange-700 dark:text-orange-400 mb-2">
-                      🎧 {currentEntry.content}
-                    </p>
-                    {currentEntry.contentDescription && (
-                      <p className="text-xs text-orange-600 dark:text-orange-300 italic">
-                        {currentEntry.contentDescription}
-                      </p>
-                    )}
-                  </div>
-                )}
+                ))}
               </div>
+            ) : (
+              /* Fallback to old cards for other days */
+              (currentEntry.action || currentEntry.product || currentEntry.content) && (
+                <div className="space-y-3">
+                  {currentEntry.action && (
+                    <div className="bg-green-50 dark:bg-green-900/20 rounded-lg p-4 border border-green-200 dark:border-green-800">
+                      <p className="text-sm font-medium text-green-700 dark:text-green-400 mb-2">
+                        🎯 {currentEntry.action}
+                      </p>
+                      {currentEntry.actionDescription && (
+                        <p className="text-xs text-green-600 dark:text-green-300 italic">
+                          {currentEntry.actionDescription}
+                        </p>
+                      )}
+                    </div>
+                  )}
+                  
+                  {currentEntry.product && (
+                    <div className="bg-purple-50 dark:bg-purple-900/20 rounded-lg p-4 border border-purple-200 dark:border-purple-800">
+                      <p className="text-sm font-medium text-purple-700 dark:text-purple-400 mb-2">
+                        🥤 {currentEntry.product}
+                      </p>
+                      {currentEntry.productDescription && (
+                        <p className="text-xs text-purple-600 dark:text-purple-300 italic">
+                          {currentEntry.productDescription}
+                        </p>
+                      )}
+                    </div>
+                  )}
+                  
+                  {currentEntry.content && (
+                    <div className="bg-orange-50 dark:bg-orange-900/20 rounded-lg p-4 border border-orange-200 dark:border-orange-800">
+                      <p className="text-sm font-medium text-orange-700 dark:text-orange-400 mb-2">
+                        🎧 {currentEntry.content}
+                      </p>
+                      {currentEntry.contentDescription && (
+                        <p className="text-xs text-orange-600 dark:text-orange-300 italic">
+                          {currentEntry.contentDescription}
+                        </p>
+                      )}
+                    </div>
+                  )}
+                </div>
+              )
             )}
 
             {/* Completion Status */}

@@ -11,6 +11,14 @@ export type DayEntry = {
   productDescription?: string;
   content?: string;
   contentDescription?: string;
+  steps?: {
+    id: number;
+    title: string;
+    description: string;
+    duration: string;
+    icon: string;
+    hasAudio?: boolean;
+  }[];
 };
 
 export type Challenge = {
