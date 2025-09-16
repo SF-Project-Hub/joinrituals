@@ -90,6 +90,9 @@ const CheckInPage: React.FC = () => {
     if (!completedSteps.includes(stepId)) {
       setCompletedSteps([...completedSteps, stepId]);
       
+      // Auto-collapse the current step after completion
+      setExpandedSteps(prev => prev.filter(id => id !== stepId));
+      
       // Move to next step if not the last one
       if (stepId < 3) {
         setCurrentStep(stepId + 1);
@@ -450,26 +453,24 @@ const CheckInPage: React.FC = () => {
                           
                           {/* Action Button - Only for current step */}
                           {step.id === currentStep && (
-                            <div className="pt-4 border-t border-gray-200 dark:border-gray-700">
-                              <Button
-                                variant="primary"
-                                size="lg"
+                            <div className="pt-3 border-t border-gray-200 dark:border-gray-700">
+                              <button
                                 onClick={() => handleStepComplete(step.id)}
-                                className="w-full bg-blue-500 hover:bg-blue-600 text-white font-medium py-3 rounded-lg transition-all duration-200 hover:shadow-lg active:scale-95"
+                                className="w-full bg-gray-100 hover:bg-gray-200 dark:bg-gray-700 dark:hover:bg-gray-600 text-gray-700 dark:text-gray-300 text-sm font-medium py-2 px-4 rounded-md transition-all duration-200 hover:shadow-sm active:scale-95 border border-gray-300 dark:border-gray-600"
                                 disabled={isSubmitting}
                               >
                                 {isSubmitting ? (
-                                  <div className="flex items-center gap-2">
-                                    <div className="animate-spin h-4 w-4 border-2 border-white border-t-transparent rounded-full"></div>
-                                    Wird abgeschlossen...
+                                  <div className="flex items-center justify-center gap-2">
+                                    <div className="animate-spin h-3 w-3 border-2 border-gray-400 border-t-transparent rounded-full"></div>
+                                    <span>Wird abgeschlossen...</span>
                                   </div>
                                 ) : (
-                                  <div className="flex items-center gap-2">
-                                    <span>{step.id === 3 ? '✨' : '✅'}</span>
+                                  <div className="flex items-center justify-center gap-1">
+                                    <span className="text-xs">{step.id === 3 ? '✨' : '✓'}</span>
                                     <span>{step.id === 3 ? 'Ritual abschließen' : 'Erledigt'}</span>
                                   </div>
                                 )}
-                              </Button>
+                              </button>
                             </div>
                           )}
                         </div>
