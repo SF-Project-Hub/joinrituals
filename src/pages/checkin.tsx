@@ -258,19 +258,19 @@ const CheckInPage: React.FC = () => {
                   <h2 className="text-2xl font-bold mb-2">
                     {currentEntry.title}
                   </h2>
-                  {(dayNum === 1 || dayNum === 2) && activeTab === 'evening' && (
+                  {(dayNum === 1 || dayNum === 2 || dayNum === 3) && activeTab === 'evening' && (
                       <div className="flex justify-center gap-2 mb-3">
                         <div className="bg-white/20 backdrop-blur-sm px-2 py-1 rounded-full">
-                          <span className="text-xs font-medium text-white">{dayNum === 1 ? '8–10 Min' : '15–20 Min'}</span>
+                          <span className="text-xs font-medium text-white">{dayNum === 1 ? '8–10 Min' : dayNum === 2 ? '15–20 Min' : 'ca. 12 Min'}</span>
                         </div>
                         <div className="bg-white/20 backdrop-blur-sm px-2 py-1 rounded-full flex items-center gap-0.5">
                           <div className="w-1 h-1 bg-white rounded-full"></div>
                           <div className="w-1 h-1 bg-white rounded-full"></div>
                           <div className="w-1 h-1 bg-white rounded-full"></div>
-                          <div className="w-1 h-1 bg-white rounded-full"></div>
+                          {dayNum === 2 && <div className="w-1 h-1 bg-white rounded-full"></div>}
                         </div>
                         <div className="bg-white/20 backdrop-blur-sm px-2 py-1 rounded-full">
-                          <span className="text-xs font-medium text-white">Beruhigend</span>
+                          <span className="text-xs font-medium text-white">{dayNum === 3 ? 'Balancierend' : 'Beruhigend'}</span>
                         </div>
                       </div>
                     )}
@@ -291,11 +291,11 @@ const CheckInPage: React.FC = () => {
                     <p className="text-apple-gray-medium">
                       {uiCopy.home.morningRitual}
                     </p>
-                  ) : (dayNum === 1 || dayNum === 2) && activeTab === 'evening' ? (
+                  ) : (dayNum === 1 || dayNum === 2 || dayNum === 3) && activeTab === 'evening' ? (
                   <div className="flex justify-center gap-3 mt-3">
                     <div className="bg-blue-100 dark:bg-blue-900/30 px-3 py-1 rounded-full flex items-center gap-1">
                       <span className="text-blue-600 dark:text-blue-400">⏱️</span>
-                      <span className="text-xs font-medium text-blue-700 dark:text-blue-300">{dayNum === 1 ? '8–10 Min' : '15–20 Min'}</span>
+                      <span className="text-xs font-medium text-blue-700 dark:text-blue-300">{dayNum === 1 ? '8–10 Min' : dayNum === 2 ? '15–20 Min' : 'ca. 12 Min'}</span>
                     </div>
            <div className="bg-yellow-100 dark:bg-yellow-900/30 px-3 py-1 rounded-full flex items-center gap-1">
              <span className="text-yellow-600 dark:text-yellow-400">📊</span>
@@ -303,12 +303,12 @@ const CheckInPage: React.FC = () => {
                <div className="w-1.5 h-1.5 bg-yellow-600 dark:bg-yellow-400 rounded-full"></div>
                <div className="w-1.5 h-1.5 bg-yellow-600 dark:bg-yellow-400 rounded-full"></div>
                <div className="w-1.5 h-1.5 bg-yellow-600 dark:bg-yellow-400 rounded-full"></div>
-               <div className="w-1.5 h-1.5 bg-yellow-600 dark:bg-yellow-400 rounded-full"></div>
+               {dayNum === 2 && <div className="w-1.5 h-1.5 bg-yellow-600 dark:bg-yellow-400 rounded-full"></div>}
              </div>
            </div>
                     <div className="bg-purple-100 dark:bg-purple-900/30 px-3 py-1 rounded-full flex items-center gap-1">
                       <span className="text-purple-600 dark:text-purple-400">✨</span>
-                      <span className="text-xs font-medium text-purple-700 dark:text-purple-300">Beruhigend</span>
+                      <span className="text-xs font-medium text-purple-700 dark:text-purple-300">{dayNum === 3 ? 'Balancierend' : 'Beruhigend'}</span>
                     </div>
                   </div>
                 ) : (
@@ -330,8 +330,8 @@ const CheckInPage: React.FC = () => {
               </p>
             </div>
 
-            {/* Step-by-Step Flow for Day 1 & 2 Evening */}
-            {(dayNum === 1 || dayNum === 2) && activeTab === 'evening' && currentEntry.steps ? (
+            {/* Step-by-Step Flow for Day 1, 2 & 3 Evening */}
+            {(dayNum === 1 || dayNum === 2 || dayNum === 3) && activeTab === 'evening' && currentEntry.steps ? (
               <div className="space-y-4">
                 {/* Progress Bar */}
                 <div className="flex items-center justify-center space-x-2">

@@ -112,13 +112,60 @@ export const defaultChallenge: Challenge = {
     },
 
     { day: 3, ritual: "morning", title: "Movement Boost", microBite: "5 Minuten Stretching oder Mobility – bringt Kreislauf & Gelenke in Schwung." },
-    { 
-      day: 3, 
-      ritual: "evening", 
-      title: "Sleep Stack 3 - Fast-Sleep Reset", 
-      microBite: "Schnelle Entspannungsroutine für besseren Schlaf",
-      product: "Relax-Stick trinken 🥤 (2 Min)",
-      content: "2 Min Stretching (Video) • 5 Min Guided Meditation 🎧 (Audio)"
+    {
+      day: 3,
+      ritual: "evening",
+      title: "Ein Ritual für mehr Ruhe nach einem langen Tag",
+      microBite: "Lass den Tag hinter dir – dein Körper bereitet sich jetzt auf erholsamen Schlaf vor.",
+      headerImageUrl: "/e_1.jpg", // Verwende das Kerzen-Bild für Day 3
+      action: "Warm Shower",
+      actionDescription: "Der Temperaturwechsel signalisiert deinem Körper: Es ist Zeit runterzufahren.",
+      product: "Gratitude Journaling",
+      productDescription: "Dankbarkeit shiftet deinen Fokus weg von Stress hin zu Positivität.",
+      content: "Meditation (2 Min)",
+      contentDescription: "Meditation aktiviert dein Ruhe-Nervensystem und löst Anspannung.",
+      steps: [
+        {
+          id: 1,
+          title: "Warm Shower",
+          description: "",
+          duration: "5 Min",
+          icon: "",
+          imageUrl: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=300&h=200&fit=crop&crop=center",
+          tips: "Dusche warm und achte bewusst auf das Gefühl von Wärme und Entspannung.",
+          why: "Der Temperaturwechsel signalisiert deinem Körper: Es ist Zeit runterzufahren."
+        },
+        {
+          id: 2,
+          title: "Gratitude Journaling",
+          description: "",
+          duration: "3 Min",
+          icon: "",
+          imageUrl: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=300&h=200&fit=crop&crop=center",
+          tips: "Schreibe 3 Dinge auf, für die du heute dankbar bist.",
+          why: "Dankbarkeit shiftet deinen Fokus weg von Stress hin zu Positivität."
+        },
+        {
+          id: 3,
+          title: "Meditation (2 Min)",
+          description: "",
+          duration: "2 Min",
+          icon: "",
+          imageUrl: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=300&h=200&fit=crop&crop=center",
+          tips: "Setze dich bequem hin, schließe die Augen und konzentriere dich nur auf deinen Atem.",
+          why: "Meditation aktiviert dein Ruhe-Nervensystem und löst Anspannung."
+        },
+        {
+          id: 4,
+          title: "2 Min Meditation (Loslassen)",
+          description: "",
+          duration: "2 Min",
+          icon: "",
+          imageUrl: "https://images.unsplash.com/photo-1544148103-0773bf10d330?w=300&h=200&fit=crop&crop=center",
+          tips: "Fokussiere dich auf das Loslassen von Anspannung und Stress des Tages.",
+          why: "Loslassen-Meditation hilft dabei, den Tag mental abzuschließen und inneren Frieden zu finden."
+        }
+      ]
     },
 
     { day: 4, ritual: "morning", title: "Mindful Start", microBite: "Schreibe 1 Dankbarkeit auf – positiver Fokus beeinflusst deinen ganzen Tag." },
