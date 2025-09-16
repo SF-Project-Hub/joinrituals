@@ -267,7 +267,7 @@ const CheckInPage: React.FC = () => {
                       <span className="text-xs font-medium text-yellow-700 dark:text-yellow-300">Mittel</span>
                     </div>
                     <div className="bg-purple-100 dark:bg-purple-900/30 px-3 py-1 rounded-full flex items-center gap-1">
-                      <span className="text-purple-600 dark:text-purple-400">🕯️</span>
+                      <span className="text-purple-600 dark:text-purple-400">✨</span>
                       <span className="text-xs font-medium text-purple-700 dark:text-purple-300">Beruhigend</span>
                     </div>
                   </div>

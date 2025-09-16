@@ -14,7 +14,7 @@ export const defaultChallenge: Challenge = {
       microBite: "Lass den Tag hinter dir – dein Körper bereitet sich jetzt auf erholsamen Schlaf vor.",
       action: "Handy weglegen (1 Min)",
       actionDescription: "Sensorischer Trigger → dein Signal: Der Tag ist vorbei.",
-      product: "Sleep Stick trinken (2 Min)",
+      product: "Relax-Stick trinken (2 Min)",
       productDescription: "Hydration + Magnesium → dein Körper signalisiert Ruhe.",
       content: "Box-Breathing Audio (3 Min)",
       contentDescription: "Beruhigt deine Gedanken, fährt das Nervensystem runter.",
@@ -27,15 +27,15 @@ export const defaultChallenge: Challenge = {
           icon: "🎯",
           tips: "Lege es in ein anderes Zimmer oder in einen Schrank. Je weiter weg, desto besser. Kein anderes Zimmer? Nutze den Flugmodus und lege es außer Reichweite.",
           why: "Sensorischer Trigger → dein Signal: Der Tag ist vorbei. Blaues Licht hemmt Melatonin-Produktion. Ohne Handy kann dein Gehirn endlich runterfahren.",
-          alternative: "Wenn du das Handy brauchst: Nutze den Nachtmodus und reduziere die Helligkeit auf Minimum. Oder: Kräutertee (Kamille, Lavendel) als Alternative zum Sleep Stick."
+          alternative: "Wenn du das Handy brauchst: Nutze den Nachtmodus und reduziere die Helligkeit auf Minimum. Oder: Kräutertee (Kamille, Lavendel) als Alternative zum Relax-Stick."
         },
         {
           id: 2,
-          title: "Sleep Stick trinken",
+          title: "Relax-Stick trinken",
           description: "",
           duration: "2 Min",
           icon: "🥤",
-          tips: "Trinke langsam und bewusst. Konzentriere dich auf den Geschmack und die Wärme. Kein Sleep Stick? Warmes Wasser mit einem Spritzer Zitrone funktioniert auch.",
+          tips: "Trinke langsam und bewusst. Konzentriere dich auf den Geschmack und die Wärme. Kein Relax-Stick? Warmes Wasser mit einem Spritzer Zitrone funktioniert auch.",
           why: "Hydration + Magnesium → dein Körper signalisiert Ruhe. Magnesium entspannt Muskeln und Nerven. Die Wärme signalisiert deinem Körper: Zeit für Ruhe.",
           alternative: "Kräutertee (Kamille, Lavendel) oder warme Milch mit Honig sind gute Alternativen. Oder: 4-7-8 Atmung als Alternative zum Audio."
         },
@@ -48,7 +48,7 @@ export const defaultChallenge: Challenge = {
           hasAudio: true,
           tips: "Finde eine bequeme Position. Augen schließen und nur auf die Stimme konzentrieren. Audio zu schnell? Atme in deinem eigenen Tempo mit. Das Wichtigste ist die Regelmäßigkeit.",
           why: "Beruhigt deine Gedanken, fährt das Nervensystem runter. Geführte Atmung aktiviert den Parasympathikus - dein Ruhe-Nervensystem. Stresshormone werden abgebaut.",
-          alternative: "Kein Audio? 4-7-8 Atmung: 4 Sekunden ein, 7 halten, 8 aus. 3-5 Runden reichen. Oder: Warme Milch mit Honig als Alternative zum Sleep Stick."
+          alternative: "Kein Audio? 4-7-8 Atmung: 4 Sekunden ein, 7 halten, 8 aus. 3-5 Runden reichen. Oder: Warme Milch mit Honig als Alternative zum Relax-Stick."
         }
       ]
     },
@@ -59,8 +59,8 @@ export const defaultChallenge: Challenge = {
       ritual: "evening", 
       title: "Sleep Stack 2 - Tech-Free Wind-Down", 
       microBite: "Entspannende Abendroutine ohne Technologie",
-      action: "Kerze anzünden 🕯️ (1 Min) • 10 Min Lesen 📖 (optional)",
-      product: "Sleep Stick trinken 🥤 (2 Min)",
+      action: "Kerze anzünden ✨ (1 Min) • 10 Min Lesen 📖 (optional)",
+      product: "Relax-Stick trinken 🥤 (2 Min)",
       content: "2 Min Journaling"
     },
 
@@ -70,7 +70,7 @@ export const defaultChallenge: Challenge = {
       ritual: "evening", 
       title: "Sleep Stack 3 - Fast-Sleep Reset", 
       microBite: "Schnelle Entspannungsroutine für besseren Schlaf",
-      product: "Sleep Stick trinken 🥤 (2 Min)",
+      product: "Relax-Stick trinken 🥤 (2 Min)",
       content: "2 Min Stretching (Video) • 5 Min Guided Meditation 🎧 (Audio)"
     },
 
