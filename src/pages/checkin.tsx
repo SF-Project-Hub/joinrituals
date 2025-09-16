@@ -254,30 +254,27 @@ const CheckInPage: React.FC = () => {
                       className="w-full h-full object-cover"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
-                    <div className="absolute bottom-4 left-4 right-4 text-white">
-                      <h2 className="text-2xl font-bold mb-2">
-                        {currentEntry.title}
-                      </h2>
-                      <p className="text-sm opacity-90">
-                        {currentEntry.microBite}
-                      </p>
-                    </div>
+                  <div className="absolute bottom-4 left-4 right-4 text-white">
+                    <h2 className="text-2xl font-bold mb-2">
+                      {currentEntry.title}
+                    </h2>
+                    {dayNum === 1 && activeTab === 'evening' && (
+                      <div className="flex justify-center gap-2 mb-3">
+                        <div className="bg-white/20 backdrop-blur-sm px-2 py-1 rounded-full">
+                          <span className="text-xs font-medium text-white">8–10 Min</span>
+                        </div>
+                        <div className="bg-white/20 backdrop-blur-sm px-2 py-1 rounded-full flex items-center gap-0.5">
+                          <div className="w-1 h-1 bg-white rounded-full"></div>
+                          <div className="w-1 h-1 bg-white rounded-full"></div>
+                          <div className="w-1 h-1 bg-white/50 rounded-full"></div>
+                        </div>
+                        <div className="bg-white/20 backdrop-blur-sm px-2 py-1 rounded-full">
+                          <span className="text-xs font-medium text-white">Beruhigend</span>
+                        </div>
+                      </div>
+                    )}
                   </div>
-                  {dayNum === 1 && activeTab === 'evening' && (
-                    <div className="flex justify-center gap-3 mt-4">
-                      <div className="bg-gray-100 dark:bg-gray-800 px-3 py-1 rounded-full border border-gray-200 dark:border-gray-700">
-                        <span className="text-xs font-medium text-gray-700 dark:text-gray-300">8–10 Min</span>
-                      </div>
-                      <div className="bg-gray-100 dark:bg-gray-800 px-3 py-1 rounded-full flex items-center gap-0.5 border border-gray-200 dark:border-gray-700">
-                        <div className="w-1.5 h-1.5 bg-gray-700 dark:bg-gray-300 rounded-full"></div>
-                        <div className="w-1.5 h-1.5 bg-gray-700 dark:bg-gray-300 rounded-full"></div>
-                        <div className="w-1.5 h-1.5 bg-gray-300 dark:bg-gray-600 rounded-full"></div>
-                      </div>
-                      <div className="bg-gray-100 dark:bg-gray-800 px-3 py-1 rounded-full border border-gray-200 dark:border-gray-700">
-                        <span className="text-xs font-medium text-gray-700 dark:text-gray-300">Beruhigend</span>
-                      </div>
-                    </div>
-                  )}
+                  </div>
                 </>
               ) : (
                 <div className="text-4xl">
