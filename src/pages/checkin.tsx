@@ -416,24 +416,24 @@ const CheckInPage: React.FC = () => {
                              ? activeTab === 'morning' 
                                ? 'text-gray-900 dark:text-gray-100'
                                : 'text-gray-900 dark:text-gray-100'
-                             : step.id < currentStep
-                               ? activeTab === 'morning'
-                                 ? 'text-gray-800 dark:text-gray-300'
-                                 : 'text-gray-700 dark:text-gray-300'
-                               : activeTab === 'morning'
-                                 ? 'text-gray-600 dark:text-gray-400'
-                                 : 'text-gray-500 dark:text-gray-400'
+                               : step.id < currentStep
+                                 ? activeTab === 'morning'
+                                   ? 'text-gray-900 dark:text-gray-300'
+                                   : 'text-gray-700 dark:text-gray-300'
+                                 : activeTab === 'morning'
+                                   ? 'text-gray-800 dark:text-gray-400'
+                                   : 'text-gray-500 dark:text-gray-400'
                          }`}>
                               {step.title}
                             </h3>
                             <div className="flex items-center gap-2 mt-1">
-                              <span className={`text-xs ${activeTab === 'morning' ? 'text-gray-600 dark:text-gray-400' : 'text-gray-500 dark:text-gray-400'}`}>
+                              <span className={`text-xs ${activeTab === 'morning' ? 'text-gray-700 dark:text-gray-400' : 'text-gray-500 dark:text-gray-400'}`}>
                                 {step.duration}
                               </span>
                               {step.id <= currentStep && (
                                 <>
-                                  <span className={`text-xs ${activeTab === 'morning' ? 'text-gray-500 dark:text-gray-400' : 'text-gray-400'}`}>•</span>
-                                  <span className={`text-xs ${activeTab === 'morning' ? 'text-gray-600 dark:text-gray-400' : 'text-gray-500 dark:text-gray-400'}`}>
+                                  <span className={`text-xs ${activeTab === 'morning' ? 'text-gray-600 dark:text-gray-400' : 'text-gray-400'}`}>•</span>
+                                  <span className={`text-xs ${activeTab === 'morning' ? 'text-gray-700 dark:text-gray-400' : 'text-gray-500 dark:text-gray-400'}`}>
                                     {expandedSteps.includes(step.id) ? 'Weniger Details' : 'Mehr Details'}
                                   </span>
                                 </>
