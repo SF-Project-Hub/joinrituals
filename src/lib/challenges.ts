@@ -25,6 +25,7 @@ export const defaultChallenge: Challenge = {
           description: "",
           duration: "1 Min",
           icon: "🎯",
+          imageUrl: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=300&h=200&fit=crop&crop=center",
           tips: "Lege es in ein anderes Zimmer oder in einen Schrank. Je weiter weg, desto besser. Kein anderes Zimmer? Nutze den Flugmodus und lege es außer Reichweite.",
           why: "Sensorischer Trigger → dein Signal: Der Tag ist vorbei. Blaues Licht hemmt Melatonin-Produktion. Ohne Handy kann dein Gehirn endlich runterfahren.",
           alternative: "Wenn du das Handy brauchst: Nutze den Nachtmodus und reduziere die Helligkeit auf Minimum. Oder: Kräutertee (Kamille, Lavendel) als Alternative zum Relax-Stick."
@@ -35,6 +36,7 @@ export const defaultChallenge: Challenge = {
           description: "",
           duration: "2 Min",
           icon: "🥤",
+          imageUrl: "https://images.unsplash.com/photo-1544148103-0773bf10d330?w=300&h=200&fit=crop&crop=center",
           tips: "Trinke langsam und bewusst. Konzentriere dich auf den Geschmack und die Wärme. Kein Relax-Stick? Warmes Wasser mit einem Spritzer Zitrone funktioniert auch.",
           why: "Hydration + Magnesium → dein Körper signalisiert Ruhe. Magnesium entspannt Muskeln und Nerven. Die Wärme signalisiert deinem Körper: Zeit für Ruhe.",
           alternative: "Kräutertee (Kamille, Lavendel) oder warme Milch mit Honig sind gute Alternativen. Oder: 4-7-8 Atmung als Alternative zum Audio."
@@ -45,6 +47,7 @@ export const defaultChallenge: Challenge = {
           description: "",
           duration: "3 Min",
           icon: "🎧",
+          imageUrl: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=300&h=200&fit=crop&crop=center",
           hasAudio: true,
           tips: "Finde eine bequeme Position. Augen schließen und nur auf die Stimme konzentrieren. Audio zu schnell? Atme in deinem eigenen Tempo mit. Das Wichtigste ist die Regelmäßigkeit.",
           why: "Beruhigt deine Gedanken, fährt das Nervensystem runter. Geführte Atmung aktiviert den Parasympathikus - dein Ruhe-Nervensystem. Stresshormone werden abgebaut.",

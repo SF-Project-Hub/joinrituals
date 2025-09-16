@@ -337,8 +337,16 @@ const CheckInPage: React.FC = () => {
                       onClick={() => step.id <= currentStep && toggleStepExpansion(step.id)}
                     >
                       <div className="flex items-center justify-between">
-                        <div className="flex items-center gap-2 flex-1">
-                          <span className="text-lg">{step.icon}</span>
+                        <div className="flex items-center gap-3 flex-1">
+                          {step.imageUrl ? (
+                            <img 
+                              src={step.imageUrl} 
+                              alt={step.title}
+                              className="w-12 h-12 rounded-lg object-cover shadow-sm"
+                            />
+                          ) : (
+                            <span className="text-lg">{step.icon}</span>
+                          )}
                           <div className="flex-1">
                             <h3 className={`font-medium ${
                               step.id === currentStep 

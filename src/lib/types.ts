@@ -17,6 +17,7 @@ export type DayEntry = {
     description: string;
     duration: string;
     icon: string;
+    imageUrl?: string;
     hasAudio?: boolean;
     tips?: string;
     why?: string;
