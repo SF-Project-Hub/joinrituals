@@ -545,12 +545,11 @@ const CheckInPage: React.FC = () => {
               </div>
             ) : (
               <div className="text-center space-y-4">
-                <p className="text-apple-gray-medium">
-                  {testMode 
-                    ? "In test mode - you can navigate freely without saving progress."
-                    : "Take a moment to practice this ritual mindfully."
-                  }
-                </p>
+                {!testMode && (
+                  <p className="text-apple-gray-medium">
+                    Take a moment to practice this ritual mindfully.
+                  </p>
+                )}
                 {testMode ? (
                   <div className="space-y-2">
                     <Button
