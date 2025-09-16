@@ -337,16 +337,16 @@ const CheckInPage: React.FC = () => {
                     <div key={index} className="flex items-center">
                       <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-medium ${
                         completedSteps.includes(index + 1) 
-                          ? 'bg-green-500 text-white' 
+                          ? 'bg-white/20 backdrop-blur-sm border border-white/30 text-white' 
                           : currentStep === index + 1 
-                            ? 'bg-blue-500 text-white' 
-                            : 'bg-gray-200 dark:bg-gray-700 text-gray-500'
+                            ? 'bg-white/10 backdrop-blur-sm border border-white/20 text-white' 
+                            : 'bg-gray-200/50 dark:bg-gray-700/50 text-gray-500 dark:text-gray-400'
                       }`}>
-                        {completedSteps.includes(index + 1) ? '✅' : index + 1}
+                        {index + 1}
                       </div>
                       {index < (currentEntry.steps?.length || 0) - 1 && (
                         <div className={`w-8 h-0.5 mx-2 ${
-                          completedSteps.includes(index + 1) ? 'bg-green-500' : 'bg-gray-200 dark:bg-gray-700'
+                          completedSteps.includes(index + 1) ? 'bg-white/30' : 'bg-gray-200 dark:bg-gray-700'
                         }`} />
                       )}
                     </div>
@@ -412,11 +412,11 @@ const CheckInPage: React.FC = () => {
                         <div className="flex items-center gap-2">
                           {/* Status Indicator */}
                           {step.id < currentStep ? (
-                            <div className="text-green-600 dark:text-green-400 text-sm font-medium">Erledigt</div>
+                            <div className="bg-white/20 backdrop-blur-sm border border-white/30 text-white text-xs font-medium px-2 py-1 rounded-full">Erledigt</div>
                           ) : step.id === currentStep ? (
-                            <div className="text-gray-800 dark:text-gray-200 text-sm font-medium">Aktiv</div>
+                            <div className="bg-white/10 backdrop-blur-sm border border-white/20 text-white text-xs font-medium px-2 py-1 rounded-full">Aktiv</div>
                           ) : (
-                            <div className="text-gray-400 text-sm font-medium">Warten</div>
+                            <div className="text-gray-400 text-xs font-medium">Warten</div>
                           )}
                         </div>
                       </div>
@@ -488,7 +488,7 @@ const CheckInPage: React.FC = () => {
                             <div className="pt-3 border-t border-gray-200 dark:border-gray-700">
                               <button
                                 onClick={() => handleStepComplete(step.id)}
-                                className="w-full bg-green-600 hover:bg-green-700 text-white text-sm font-medium py-2 px-4 rounded-md transition-all duration-200 hover:shadow-sm active:scale-95"
+                                className="w-full bg-white/20 backdrop-blur-sm border border-white/30 hover:bg-white/30 text-white text-sm font-medium py-2 px-4 rounded-md transition-all duration-200 hover:shadow-sm active:scale-95"
                                 disabled={isSubmitting}
                               >
                                 {isSubmitting ? (
