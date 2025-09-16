@@ -7,11 +7,12 @@ export const defaultChallenge: Challenge = {
   days: [
     // Tag 1–10
     { day: 1, ritual: "morning", title: "Hydration First", microBite: "Trinke Wasser vor Kaffee – dein Körper verliert über Nacht bis zu 1 Liter Flüssigkeit." },
-    { 
-      day: 1, 
-      ritual: "evening", 
-      title: "Dein Abendritual zum Loslassen", 
+    {
+      day: 1,
+      ritual: "evening",
+      title: "Dein Abendritual zum Loslassen",
       microBite: "Lass den Tag hinter dir – dein Körper bereitet sich jetzt auf erholsamen Schlaf vor.",
+      headerImageUrl: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=200&fit=crop&crop=center",
       action: "Handy weglegen (1 Min)",
       actionDescription: "Sensorischer Trigger → dein Signal: Der Tag ist vorbei.",
       product: "Relax-Stick trinken (2 Min)",

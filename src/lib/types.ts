@@ -5,6 +5,7 @@ export type DayEntry = {
   ritual: RitualType;
   title: string;
   microBite: string;
+  headerImageUrl?: string;
   action?: string;
   actionDescription?: string;
   product?: string;

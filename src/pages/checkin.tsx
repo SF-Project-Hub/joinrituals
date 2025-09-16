@@ -245,9 +245,19 @@ const CheckInPage: React.FC = () => {
           <Card className="p-6 space-y-6">
             {/* Ritual Header */}
             <div className="text-center space-y-3">
-              <div className="text-4xl">
-                {activeTab === 'morning' ? '🌅' : '🌙'}
-              </div>
+              {currentEntry.headerImageUrl ? (
+                <div className="flex justify-center">
+                  <img 
+                    src={currentEntry.headerImageUrl} 
+                    alt={currentEntry.title}
+                    className="w-32 h-20 rounded-xl object-cover shadow-lg"
+                  />
+                </div>
+              ) : (
+                <div className="text-4xl">
+                  {activeTab === 'morning' ? '🌅' : '🌙'}
+                </div>
+              )}
               <div>
                 <h2 className="text-2xl font-bold text-apple-gray-dark dark:text-white">
                   {currentEntry.title}
