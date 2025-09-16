@@ -6,7 +6,51 @@ export const defaultChallenge: Challenge = {
   description: "Perform by Day, Recover by Night",
   days: [
     // Tag 1–10
-    { day: 1, ritual: "morning", title: "Hydration First", microBite: "Trinke Wasser vor Kaffee – dein Körper verliert über Nacht bis zu 1 Liter Flüssigkeit." },
+    {
+      day: 1,
+      ritual: "morning",
+      title: "Starte deinen Tag mit Energie",
+      microBite: "Lass den Tag hinter dir – dein Körper bereitet sich jetzt auf erholsamen Schlaf vor.",
+      headerImageUrl: "/e_1.jpg",
+      action: "Hydration First",
+      actionDescription: "Trinke Wasser vor Kaffee – dein Körper verliert über Nacht bis zu 1 Liter Flüssigkeit.",
+      product: "Fresh Air",
+      productDescription: "Öffne das Fenster: Sonnenlicht & frische Luft regulieren deine innere Uhr.",
+      content: "Mindful Start",
+      contentDescription: "Schreibe 1 Dankbarkeit auf – positiver Fokus beeinflusst deinen ganzen Tag.",
+      steps: [
+        {
+          id: 1,
+          title: "Hydration First",
+          description: "",
+          duration: "2 Min",
+          icon: "",
+          imageUrl: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=300&h=200&fit=crop&crop=center",
+          tips: "Trinke ein großes Glas Wasser direkt nach dem Aufstehen.",
+          why: "Dein Körper verliert über Nacht bis zu 1 Liter Flüssigkeit – Hydration ist der beste Start in den Tag."
+        },
+        {
+          id: 2,
+          title: "Fresh Air",
+          description: "",
+          duration: "3 Min",
+          icon: "",
+          imageUrl: "https://images.unsplash.com/photo-1544148103-0773bf10d330?w=300&h=200&fit=crop&crop=center",
+          tips: "Öffne das Fenster und atme tief durch – auch bei kaltem Wetter.",
+          why: "Sonnenlicht & frische Luft regulieren deine innere Uhr und aktivieren dein System."
+        },
+        {
+          id: 3,
+          title: "Mindful Start",
+          description: "",
+          duration: "2 Min",
+          icon: "",
+          imageUrl: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=300&h=200&fit=crop&crop=center",
+          tips: "Schreibe 1 Sache auf, für die du heute dankbar bist.",
+          why: "Positiver Fokus beeinflusst deinen ganzen Tag und setzt die richtige Stimmung."
+        }
+      ]
+    },
     {
       day: 1,
       ritual: "evening",
