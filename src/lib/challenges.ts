@@ -10,7 +10,7 @@ export const defaultChallenge: Challenge = {
     {
       day: 1,
       ritual: "evening",
-      title: "Dein Abendritual zum Loslassen",
+      title: "Finde heute leichter in den Schlaf",
       microBite: "Lass den Tag hinter dir – dein Körper bereitet sich jetzt auf erholsamen Schlaf vor.",
       headerImageUrl: "/header-image.jpg",
       action: "Handy weglegen (1 Min)",
@@ -22,37 +22,34 @@ export const defaultChallenge: Challenge = {
       steps: [
         {
           id: 1,
-          title: "Handy weglegen",
+          title: "Kerze anzünden",
           description: "",
           duration: "1 Min",
-          icon: "🎯",
+          icon: "🕯️",
           imageUrl: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=300&h=200&fit=crop&crop=center",
-          tips: "Lege es in ein anderes Zimmer oder in einen Schrank. Je weiter weg, desto besser. Kein anderes Zimmer? Nutze den Flugmodus und lege es außer Reichweite.",
-          why: "Sensorischer Trigger → dein Signal: Der Tag ist vorbei. Blaues Licht hemmt Melatonin-Produktion. Ohne Handy kann dein Gehirn endlich runterfahren.",
-          alternative: "Wenn du das Handy brauchst: Nutze den Nachtmodus und reduziere die Helligkeit auf Minimum. Oder: Kräutertee (Kamille, Lavendel) als Alternative zum Relax-Stick."
+          tips: "Zünde eine Kerze an und stelle sie sichtbar hin.",
+          why: "Der sensorische Trigger signalisiert: Der Tag ist vorbei – dein Körper darf zur Ruhe kommen."
         },
         {
           id: 2,
-          title: "Relax-Stick trinken",
+          title: "Sleep Stick trinken",
           description: "",
           duration: "2 Min",
           icon: "🥤",
           imageUrl: "https://images.unsplash.com/photo-1544148103-0773bf10d330?w=300&h=200&fit=crop&crop=center",
-          tips: "Trinke langsam und bewusst. Konzentriere dich auf den Geschmack und die Wärme. Kein Relax-Stick? Warmes Wasser mit einem Spritzer Zitrone funktioniert auch.",
-          why: "Hydration + Magnesium → dein Körper signalisiert Ruhe. Magnesium entspannt Muskeln und Nerven. Die Wärme signalisiert deinem Körper: Zeit für Ruhe.",
-          alternative: "Kräutertee (Kamille, Lavendel) oder warme Milch mit Honig sind gute Alternativen. Oder: 4-7-8 Atmung als Alternative zum Audio."
+          tips: "Bereite dir ein Glas Wasser mit dem Stick zu und trinke ihn langsam.",
+          why: "Hydration + Magnesium entspannen Muskeln und Nervensystem – dein Körper schaltet in den Ruhemodus."
         },
         {
           id: 3,
-          title: "Box-Breathing Audio",
+          title: "Box Breathing (5 Min)",
           description: "",
-          duration: "3 Min",
+          duration: "5 Min",
           icon: "🎧",
           imageUrl: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=300&h=200&fit=crop&crop=center",
           hasAudio: true,
-          tips: "Finde eine bequeme Position. Augen schließen und nur auf die Stimme konzentrieren. Audio zu schnell? Atme in deinem eigenen Tempo mit. Das Wichtigste ist die Regelmäßigkeit.",
-          why: "Beruhigt deine Gedanken, fährt das Nervensystem runter. Geführte Atmung aktiviert den Parasympathikus - dein Ruhe-Nervensystem. Stresshormone werden abgebaut.",
-          alternative: "Kein Audio? 4-7-8 Atmung: 4 Sekunden ein, 7 halten, 8 aus. 3-5 Runden reichen. Oder: Warme Milch mit Honig als Alternative zum Relax-Stick."
+          tips: "Atme 4 Sekunden ein, halte 4 Sekunden, atme 4 Sekunden aus, halte 4 Sekunden – wiederhole.",
+          why: "Diese Atemtechnik beruhigt dein Nervensystem und stoppt das Gedankenkarussell."
         }
       ]
     },
