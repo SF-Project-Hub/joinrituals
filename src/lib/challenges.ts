@@ -117,7 +117,7 @@ export const defaultChallenge: Challenge = {
       ritual: "evening",
       title: "Ein Ritual für mehr Ruhe nach einem langen Tag",
       microBite: "Lass den Tag hinter dir – dein Körper bereitet sich jetzt auf erholsamen Schlaf vor.",
-      headerImageUrl: "/e_1.jpg", // Verwende das Kerzen-Bild für Day 3
+      headerImageUrl: "/e_3.jpg", // Verwende das neue Bild für Day 3
       action: "Warm Shower",
       actionDescription: "Der Temperaturwechsel signalisiert deinem Körper: Es ist Zeit runterzufahren.",
       product: "Gratitude Journaling",
