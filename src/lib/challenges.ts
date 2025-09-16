@@ -10,11 +10,14 @@ export const defaultChallenge: Challenge = {
     { 
       day: 1, 
       ritual: "evening", 
-      title: "Sleep Stack 1 - Calm Down", 
-      microBite: "Strukturierte Abendroutine für besseren Schlaf",
-      action: "Handy weglegen (1 min)",
-      product: "Sleep Stick trinken (2 min)",
-      content: "Box-Breathing Audio (3 min)"
+      title: "Dein Abendritual zum Loslassen 🌙", 
+      microBite: "Lass den Tag hinter dir – dein Körper bereitet sich jetzt auf erholsamen Schlaf vor.",
+      action: "Handy weglegen (1 Min)",
+      actionDescription: "Sensorischer Trigger → dein Signal: Der Tag ist vorbei.",
+      product: "Sleep Stick trinken (2 Min)",
+      productDescription: "Hydration + Magnesium → dein Körper signalisiert Ruhe.",
+      content: "Box-Breathing Audio (3 Min)",
+      contentDescription: "Beruhigt deine Gedanken, fährt das Nervensystem runter."
     },
 
     { day: 2, ritual: "morning", title: "Fresh Air", microBite: "Öffne das Fenster: Sonnenlicht & frische Luft regulieren deine innere Uhr." },

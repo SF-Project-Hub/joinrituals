@@ -6,8 +6,11 @@ export type DayEntry = {
   title: string;
   microBite: string;
   action?: string;
+  actionDescription?: string;
   product?: string;
+  productDescription?: string;
   content?: string;
+  contentDescription?: string;
 };
 
 export type Challenge = {

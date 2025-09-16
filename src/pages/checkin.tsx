@@ -229,16 +229,18 @@ const CheckInPage: React.FC = () => {
                     {uiCopy.home.morningRitual}
                   </p>
                 ) : dayNum === 1 && activeTab === 'evening' ? (
-                  <div className="text-apple-gray-medium">
-                    <div className="flex justify-between text-sm font-medium mb-1">
-                      <span>Dauer</span>
-                      <span>Komplexität</span>
-                      <span>Stimmung</span>
+                  <div className="flex justify-center gap-3">
+                    <div className="bg-blue-100 dark:bg-blue-900/30 px-3 py-1 rounded-full flex items-center gap-1">
+                      <span className="text-blue-600 dark:text-blue-400">⏱️</span>
+                      <span className="text-xs font-medium text-blue-700 dark:text-blue-300">8–10 Min</span>
                     </div>
-                    <div className="flex justify-between text-xs">
-                      <span>8-10 min</span>
-                      <span>Mittel</span>
-                      <span>beruhigend</span>
+                    <div className="bg-yellow-100 dark:bg-yellow-900/30 px-3 py-1 rounded-full flex items-center gap-1">
+                      <span className="text-yellow-600 dark:text-yellow-400">⚡</span>
+                      <span className="text-xs font-medium text-yellow-700 dark:text-yellow-300">Mittel</span>
+                    </div>
+                    <div className="bg-purple-100 dark:bg-purple-900/30 px-3 py-1 rounded-full flex items-center gap-1">
+                      <span className="text-purple-600 dark:text-purple-400">🌙</span>
+                      <span className="text-xs font-medium text-purple-700 dark:text-purple-300">Beruhigend</span>
                     </div>
                   </div>
                 ) : (
@@ -264,34 +266,40 @@ const CheckInPage: React.FC = () => {
               <div className="space-y-3">
                 {currentEntry.action && (
                   <div className="bg-green-50 dark:bg-green-900/20 rounded-lg p-4 border border-green-200 dark:border-green-800">
-                    <p className="text-sm font-medium text-green-700 dark:text-green-400 mb-1">
-                      🎯 Action
+                    <p className="text-sm font-medium text-green-700 dark:text-green-400 mb-2">
+                      🎯 Action: {currentEntry.action}
                     </p>
-                    <p className="text-green-800 dark:text-green-200">
-                      {currentEntry.action}
-                    </p>
+                    {currentEntry.actionDescription && (
+                      <p className="text-xs text-green-600 dark:text-green-300 italic">
+                        {currentEntry.actionDescription}
+                      </p>
+                    )}
                   </div>
                 )}
                 
                 {currentEntry.product && (
                   <div className="bg-purple-50 dark:bg-purple-900/20 rounded-lg p-4 border border-purple-200 dark:border-purple-800">
-                    <p className="text-sm font-medium text-purple-700 dark:text-purple-400 mb-1">
-                      🛍️ Product
+                    <p className="text-sm font-medium text-purple-700 dark:text-purple-400 mb-2">
+                      🥤 Product: {currentEntry.product}
                     </p>
-                    <p className="text-purple-800 dark:text-purple-200">
-                      {currentEntry.product}
-                    </p>
+                    {currentEntry.productDescription && (
+                      <p className="text-xs text-purple-600 dark:text-purple-300 italic">
+                        {currentEntry.productDescription}
+                      </p>
+                    )}
                   </div>
                 )}
                 
                 {currentEntry.content && (
                   <div className="bg-orange-50 dark:bg-orange-900/20 rounded-lg p-4 border border-orange-200 dark:border-orange-800">
-                    <p className="text-sm font-medium text-orange-700 dark:text-orange-400 mb-1">
-                      🎧 Content
+                    <p className="text-sm font-medium text-orange-700 dark:text-orange-400 mb-2">
+                      🎧 Content: {currentEntry.content}
                     </p>
-                    <p className="text-orange-800 dark:text-orange-200">
-                      {currentEntry.content}
-                    </p>
+                    {currentEntry.contentDescription && (
+                      <p className="text-xs text-orange-600 dark:text-orange-300 italic">
+                        {currentEntry.contentDescription}
+                      </p>
+                    )}
                   </div>
                 )}
               </div>
@@ -300,14 +308,19 @@ const CheckInPage: React.FC = () => {
             {/* Completion Status */}
             {isCurrentCompleted ? (
               <div className="text-center space-y-4">
-                <div className="text-5xl">✅</div>
+                <div className="text-5xl">✨</div>
                 <div>
-                  <p className="text-lg font-medium text-green-600 dark:text-green-400">
-                    {uiCopy.checkin.alreadyCompleted}
+                  <p className="text-lg font-medium text-green-600 dark:text-green-400 mb-2">
+                    Du hast dir heute Ruhe geschenkt
                   </p>
-                  <p className="text-apple-gray-medium">
-                    {uiCopy.checkin.wellDone}
+                  <p className="text-apple-gray-medium mb-3">
+                    dein Körper darf jetzt loslassen und friedlich einschlafen.
                   </p>
+                  {dayNum < 30 && (
+                    <p className="text-sm text-purple-600 dark:text-purple-400">
+                      🔮 Morgen wartet ein neuer Stack auf dich.
+                    </p>
+                  )}
                 </div>
               </div>
             ) : (
@@ -332,7 +345,7 @@ const CheckInPage: React.FC = () => {
                       }}
                       className="w-full"
                     >
-                      Mark as Complete (Test)
+                      ✨ Ich habe mein Ritual abgeschlossen
                     </Button>
                     <p className="text-xs text-orange-600 dark:text-orange-400">
                       This won't be saved permanently
@@ -346,7 +359,7 @@ const CheckInPage: React.FC = () => {
                     isLoading={isSubmitting}
                     className="w-full"
                   >
-                    {isSubmitting ? 'Completing...' : uiCopy.checkin.markComplete}
+                    {isSubmitting ? 'Completing...' : '✨ Ich habe mein Ritual abgeschlossen'}
                   </Button>
                 )}
               </div>
