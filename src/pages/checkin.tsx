@@ -267,7 +267,7 @@ const CheckInPage: React.FC = () => {
                 {currentEntry.action && (
                   <div className="bg-green-50 dark:bg-green-900/20 rounded-lg p-4 border border-green-200 dark:border-green-800">
                     <p className="text-sm font-medium text-green-700 dark:text-green-400 mb-2">
-                      🎯 Action: {currentEntry.action}
+                      🎯 {currentEntry.action}
                     </p>
                     {currentEntry.actionDescription && (
                       <p className="text-xs text-green-600 dark:text-green-300 italic">
@@ -280,7 +280,7 @@ const CheckInPage: React.FC = () => {
                 {currentEntry.product && (
                   <div className="bg-purple-50 dark:bg-purple-900/20 rounded-lg p-4 border border-purple-200 dark:border-purple-800">
                     <p className="text-sm font-medium text-purple-700 dark:text-purple-400 mb-2">
-                      🥤 Product: {currentEntry.product}
+                      🥤 {currentEntry.product}
                     </p>
                     {currentEntry.productDescription && (
                       <p className="text-xs text-purple-600 dark:text-purple-300 italic">
@@ -293,7 +293,7 @@ const CheckInPage: React.FC = () => {
                 {currentEntry.content && (
                   <div className="bg-orange-50 dark:bg-orange-900/20 rounded-lg p-4 border border-orange-200 dark:border-orange-800">
                     <p className="text-sm font-medium text-orange-700 dark:text-orange-400 mb-2">
-                      🎧 Content: {currentEntry.content}
+                      🎧 {currentEntry.content}
                     </p>
                     {currentEntry.contentDescription && (
                       <p className="text-xs text-orange-600 dark:text-orange-300 italic">
