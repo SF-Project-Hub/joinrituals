@@ -375,14 +375,14 @@ const CheckInPage: React.FC = () => {
                     {expandedSteps.includes(step.id) && (
                       <div className="px-4 pb-4 border-t border-gray-200 dark:border-gray-700 bg-white/50 dark:bg-gray-800/50">
                         <div className="pt-4 space-y-3">
-                          {/* Tips */}
+                          {/* So geht's */}
                           {step.tips && (
                             <div className="bg-yellow-50 dark:bg-yellow-900/20 p-3 rounded-lg">
                               <div className="flex items-start gap-2">
                                 <span className="text-yellow-600 dark:text-yellow-400">💡</span>
                                 <div>
                                   <p className="text-sm font-medium text-yellow-700 dark:text-yellow-300 mb-1">
-                                    Tipp
+                                    So geht's
                                   </p>
                                   <p className="text-xs text-yellow-600 dark:text-yellow-400">
                                     {step.tips}
@@ -391,8 +391,8 @@ const CheckInPage: React.FC = () => {
                               </div>
                             </div>
                           )}
-                          
-                          {/* Why */}
+
+                          {/* Warum */}
                           {step.why && (
                             <div className="bg-blue-50 dark:bg-blue-900/20 p-3 rounded-lg">
                               <div className="flex items-start gap-2">
@@ -408,32 +408,15 @@ const CheckInPage: React.FC = () => {
                               </div>
                             </div>
                           )}
-                          
-                          {/* Troubleshooting */}
-                          {step.troubleshooting && (
-                            <div className="bg-red-50 dark:bg-red-900/20 p-3 rounded-lg">
-                              <div className="flex items-start gap-2">
-                                <span className="text-red-600 dark:text-red-400">🔧</span>
-                                <div>
-                                  <p className="text-sm font-medium text-red-700 dark:text-red-300 mb-1">
-                                    Problem?
-                                  </p>
-                                  <p className="text-xs text-red-600 dark:text-red-400">
-                                    {step.troubleshooting}
-                                  </p>
-                                </div>
-                              </div>
-                            </div>
-                          )}
-                          
-                          {/* Alternative */}
+
+                          {/* Plan B */}
                           {step.alternative && (
                             <div className="bg-green-50 dark:bg-green-900/20 p-3 rounded-lg">
                               <div className="flex items-start gap-2">
                                 <span className="text-green-600 dark:text-green-400">🔄</span>
                                 <div>
                                   <p className="text-sm font-medium text-green-700 dark:text-green-300 mb-1">
-                                    Alternative
+                                    Plan B
                                   </p>
                                   <p className="text-xs text-green-600 dark:text-green-400">
                                     {step.alternative}

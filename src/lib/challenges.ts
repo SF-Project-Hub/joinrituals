@@ -25,10 +25,9 @@ export const defaultChallenge: Challenge = {
           description: "",
           duration: "1 Min",
           icon: "🎯",
-          tips: "Lege es in ein anderes Zimmer oder in einen Schrank. Je weiter weg, desto besser.",
+          tips: "Lege es in ein anderes Zimmer oder in einen Schrank. Je weiter weg, desto besser. Kein anderes Zimmer? Nutze den Flugmodus und lege es außer Reichweite.",
           why: "Sensorischer Trigger → dein Signal: Der Tag ist vorbei. Blaues Licht hemmt Melatonin-Produktion. Ohne Handy kann dein Gehirn endlich runterfahren.",
-          troubleshooting: "Kein anderes Zimmer? Nutze den Flugmodus und lege es außer Reichweite.",
-          alternative: "Wenn du das Handy brauchst: Nutze den Nachtmodus und reduziere die Helligkeit auf Minimum."
+          alternative: "Wenn du das Handy brauchst: Nutze den Nachtmodus und reduziere die Helligkeit auf Minimum. Oder: Kräutertee (Kamille, Lavendel) als Alternative zum Sleep Stick."
         },
         {
           id: 2,
@@ -36,10 +35,9 @@ export const defaultChallenge: Challenge = {
           description: "",
           duration: "2 Min",
           icon: "🥤",
-          tips: "Trinke langsam und bewusst. Konzentriere dich auf den Geschmack und die Wärme.",
+          tips: "Trinke langsam und bewusst. Konzentriere dich auf den Geschmack und die Wärme. Kein Sleep Stick? Warmes Wasser mit einem Spritzer Zitrone funktioniert auch.",
           why: "Hydration + Magnesium → dein Körper signalisiert Ruhe. Magnesium entspannt Muskeln und Nerven. Die Wärme signalisiert deinem Körper: Zeit für Ruhe.",
-          troubleshooting: "Kein Sleep Stick? Warmes Wasser mit einem Spritzer Zitrone funktioniert auch.",
-          alternative: "Kräutertee (Kamille, Lavendel) oder warme Milch mit Honig sind gute Alternativen."
+          alternative: "Kräutertee (Kamille, Lavendel) oder warme Milch mit Honig sind gute Alternativen. Oder: 4-7-8 Atmung als Alternative zum Audio."
         },
         {
           id: 3,
@@ -48,10 +46,9 @@ export const defaultChallenge: Challenge = {
           duration: "3 Min",
           icon: "🎧",
           hasAudio: true,
-          tips: "Finde eine bequeme Position. Augen schließen und nur auf die Stimme konzentrieren.",
+          tips: "Finde eine bequeme Position. Augen schließen und nur auf die Stimme konzentrieren. Audio zu schnell? Atme in deinem eigenen Tempo mit. Das Wichtigste ist die Regelmäßigkeit.",
           why: "Beruhigt deine Gedanken, fährt das Nervensystem runter. Geführte Atmung aktiviert den Parasympathikus - dein Ruhe-Nervensystem. Stresshormone werden abgebaut.",
-          troubleshooting: "Audio zu schnell? Atme in deinem eigenen Tempo mit. Das Wichtigste ist die Regelmäßigkeit.",
-          alternative: "Kein Audio? 4-7-8 Atmung: 4 Sekunden ein, 7 halten, 8 aus. 3-5 Runden reichen."
+          alternative: "Kein Audio? 4-7-8 Atmung: 4 Sekunden ein, 7 halten, 8 aus. 3-5 Runden reichen. Oder: Warme Milch mit Honig als Alternative zum Sleep Stick."
         }
       ]
     },
