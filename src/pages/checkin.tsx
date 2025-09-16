@@ -230,12 +230,12 @@ const CheckInPage: React.FC = () => {
                   </p>
                 ) : dayNum === 1 && activeTab === 'evening' ? (
                   <div className="text-apple-gray-medium">
-                    <div className="flex justify-between text-xs mb-1">
+                    <div className="flex justify-between text-sm font-medium mb-1">
                       <span>Dauer</span>
                       <span>Komplexität</span>
                       <span>Stimmung</span>
                     </div>
-                    <div className="flex justify-between text-sm font-medium">
+                    <div className="flex justify-between text-xs">
                       <span>8-10 min</span>
                       <span>Mittel</span>
                       <span>beruhigend</span>
