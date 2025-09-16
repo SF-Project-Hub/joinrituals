@@ -229,7 +229,7 @@ const CheckInPage: React.FC = () => {
                     {uiCopy.home.morningRitual}
                   </p>
                 ) : dayNum === 1 && activeTab === 'evening' ? (
-                  <div className="flex justify-center gap-3">
+                  <div className="flex justify-center gap-3 mt-3">
                     <div className="bg-blue-100 dark:bg-blue-900/30 px-3 py-1 rounded-full flex items-center gap-1">
                       <span className="text-blue-600 dark:text-blue-400">⏱️</span>
                       <span className="text-xs font-medium text-blue-700 dark:text-blue-300">8–10 Min</span>
