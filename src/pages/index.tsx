@@ -190,7 +190,7 @@ const HomePage: React.FC = () => {
               <Button 
                 variant="ghost" 
                 size="sm" 
-                onClick={() => router.push(`/checkin/${defaultChallenge.id}/1?test=true`)}
+                onClick={() => router.push(`/checkin?challengeId=${defaultChallenge.id}&day=1&test=true`)}
                 className="text-orange-600 dark:text-orange-400 border-orange-200 dark:border-orange-800"
               >
                 🧪 Test Mode
