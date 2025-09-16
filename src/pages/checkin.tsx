@@ -322,11 +322,11 @@ const CheckInPage: React.FC = () => {
             </div>
 
             {/* Micro Bite */}
-            <div className="bg-apple-blue/10 dark:bg-apple-blue/20 rounded-lg p-4">
-              <p className="text-sm font-medium text-apple-blue mb-2">
+            <div className="bg-gray-50 dark:bg-gray-800/50 rounded-lg p-4 border border-gray-200 dark:border-gray-700">
+              <p className="text-sm font-medium text-gray-800 dark:text-gray-200 mb-2">
                 {uiCopy.checkin.microBiteLabel}
               </p>
-              <p className="text-apple-gray-dark dark:text-white">
+              <p className="text-gray-700 dark:text-gray-300">
                 {currentEntry.microBite}
               </p>
             </div>
