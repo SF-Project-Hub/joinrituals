@@ -320,8 +320,15 @@ const CheckInPage: React.FC = () => {
                         ? 'bg-green-50 dark:bg-green-900/20 border-green-200 dark:border-green-800'
                         : 'bg-gray-50 dark:bg-gray-800/20 border-gray-200 dark:border-gray-700 opacity-50'
                   }`}>
-                    {/* Step Header - Always Visible */}
-                    <div className="p-4">
+                    {/* Step Header - Clickable Area */}
+                    <div 
+                      className={`p-4 cursor-pointer transition-all duration-200 ${
+                        step.id <= currentStep 
+                          ? 'hover:bg-blue-100/50 dark:hover:bg-blue-900/30' 
+                          : 'cursor-not-allowed'
+                      }`}
+                      onClick={() => step.id <= currentStep && toggleStepExpansion(step.id)}
+                    >
                       <div className="flex items-center justify-between">
                         <div className="flex items-center gap-2 flex-1">
                           <span className="text-lg">{step.icon}</span>
@@ -339,44 +346,24 @@ const CheckInPage: React.FC = () => {
                               <span className="text-xs text-gray-500 dark:text-gray-400">
                                 {step.duration}
                               </span>
-                              <span className="text-xs text-gray-400">•</span>
-                              <span className={`text-xs ${
-                                step.id === currentStep 
-                                  ? 'text-blue-600 dark:text-blue-400' 
-                                  : step.id < currentStep 
-                                    ? 'text-green-600 dark:text-green-400' 
-                                    : 'text-gray-400 dark:text-gray-500'
-                              }`}>
-                                {step.description}
-                              </span>
+                              {step.id <= currentStep && (
+                                <>
+                                  <span className="text-xs text-gray-400">•</span>
+                                  <span className="text-xs text-gray-500 dark:text-gray-400">
+                                    {expandedSteps.includes(step.id) ? 'Weniger Details' : 'Mehr Details'}
+                                  </span>
+                                </>
+                              )}
                             </div>
                           </div>
                         </div>
                         
                         <div className="flex items-center gap-2">
-                          {/* Expand/Collapse Button */}
-                          <button
-                            onClick={() => toggleStepExpansion(step.id)}
-                            className="p-1 hover:bg-gray-100 dark:hover:bg-gray-700 rounded transition-colors"
-                            disabled={step.id > currentStep}
-                          >
-                            <span className="text-gray-500 dark:text-gray-400">
-                              {expandedSteps.includes(step.id) ? '▲' : '▼'}
-                            </span>
-                          </button>
-                          
-                          {/* Step Action Button */}
+                          {/* Status Indicator */}
                           {step.id < currentStep ? (
                             <div className="text-green-500 text-2xl">✅</div>
                           ) : step.id === currentStep ? (
-                            <Button
-                              variant="primary"
-                              size="sm"
-                              onClick={() => handleStepComplete(step.id)}
-                              className="bg-blue-500 hover:bg-blue-600"
-                            >
-                              {step.id === 3 ? '✨ Ritual abschließen' : '✅ Erledigt'}
-                            </Button>
+                            <div className="text-blue-500 text-2xl">🎯</div>
                           ) : (
                             <div className="text-gray-400 text-2xl">⏳</div>
                           )}
@@ -475,6 +462,31 @@ const CheckInPage: React.FC = () => {
                                   </div>
                                 </div>
                               </div>
+                            </div>
+                          )}
+                          
+                          {/* Action Button - Only for current step */}
+                          {step.id === currentStep && (
+                            <div className="pt-4 border-t border-gray-200 dark:border-gray-700">
+                              <Button
+                                variant="primary"
+                                size="lg"
+                                onClick={() => handleStepComplete(step.id)}
+                                className="w-full bg-blue-500 hover:bg-blue-600 text-white font-medium py-3 rounded-lg transition-all duration-200 hover:shadow-lg active:scale-95"
+                                disabled={isSubmitting}
+                              >
+                                {isSubmitting ? (
+                                  <div className="flex items-center gap-2">
+                                    <div className="animate-spin h-4 w-4 border-2 border-white border-t-transparent rounded-full"></div>
+                                    Wird abgeschlossen...
+                                  </div>
+                                ) : (
+                                  <div className="flex items-center gap-2">
+                                    <span>{step.id === 3 ? '✨' : '✅'}</span>
+                                    <span>{step.id === 3 ? 'Ritual abschließen' : 'Erledigt'}</span>
+                                  </div>
+                                )}
+                              </Button>
                             </div>
                           )}
                         </div>
