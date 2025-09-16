@@ -18,10 +18,25 @@ export const defaultChallenge: Challenge = {
     },
 
     { day: 2, ritual: "morning", title: "Fresh Air", microBite: "Öffne das Fenster: Sonnenlicht & frische Luft regulieren deine innere Uhr." },
-    { day: 2, ritual: "evening", title: "Magnesium Support", microBite: "Magnesium entspannt Muskeln und Nerven – eine sanfte Einladung an den Schlaf." },
+    { 
+      day: 2, 
+      ritual: "evening", 
+      title: "Sleep Stack 2 - Tech-Free Wind-Down", 
+      microBite: "Entspannende Abendroutine ohne Technologie",
+      action: "Kerze anzünden 🕯️ (1 Min) • 10 Min Lesen 📖 (optional)",
+      product: "Sleep Stick trinken 🥤 (2 Min)",
+      content: "2 Min Journaling"
+    },
 
     { day: 3, ritual: "morning", title: "Movement Boost", microBite: "5 Minuten Stretching oder Mobility – bringt Kreislauf & Gelenke in Schwung." },
-    { day: 3, ritual: "evening", title: "Cool Down", microBite: "Eine kühlere Raumtemperatur (18–20°C) fördert tiefen Schlaf." },
+    { 
+      day: 3, 
+      ritual: "evening", 
+      title: "Sleep Stack 3 - Fast-Sleep Reset", 
+      microBite: "Schnelle Entspannungsroutine für besseren Schlaf",
+      product: "Sleep Stick trinken 🥤 (2 Min)",
+      content: "2 Min Stretching (Video) • 5 Min Guided Meditation 🎧 (Audio)"
+    },
 
     { day: 4, ritual: "morning", title: "Mindful Start", microBite: "Schreibe 1 Dankbarkeit auf – positiver Fokus beeinflusst deinen ganzen Tag." },
     { day: 4, ritual: "evening", title: "Sleep Journal", microBite: "Notiere kurz 3 Gedanken – entlastet den Kopf und reduziert Grübeln." },
