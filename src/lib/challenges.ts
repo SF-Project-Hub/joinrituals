@@ -58,7 +58,7 @@ export const defaultChallenge: Challenge = {
     {
       day: 2,
       ritual: "evening",
-      title: "Ich wache nachts auf / schlafe unruhig",
+      title: "Ein Abendritual für tiefe Geborgenheit im Schlaf",
       microBite: "Lass den Tag hinter dir – dein Körper bereitet sich jetzt auf erholsamen Schlaf vor.",
       headerImageUrl: "/header-image.jpg",
       action: "Blue Light Detox (1 Stunde)",
@@ -97,6 +97,16 @@ export const defaultChallenge: Challenge = {
           imageUrl: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=300&h=200&fit=crop&crop=center",
           tips: "Trinke ein Glas mit Sleep Stick, bevor du ins Bett gehst.",
           why: "Elektrolyte stabilisieren die Nachtbalance, Glycin kann die Schlaftiefe fördern."
+        },
+        {
+          id: 4,
+          title: "3 Min Stretching",
+          description: "",
+          duration: "3 Min",
+          icon: "",
+          imageUrl: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=300&h=200&fit=crop&crop=center",
+          tips: "Entspannung für Körper - sanfte Dehnübungen vor dem Schlaf.",
+          why: "Stretching entspannt Muskeln und reduziert körperliche Anspannung für besseren Schlaf."
         }
       ]
     },
