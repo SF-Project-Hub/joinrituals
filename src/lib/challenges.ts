@@ -10,7 +10,7 @@ export const defaultChallenge: Challenge = {
     { 
       day: 1, 
       ritual: "evening", 
-      title: "Dein Abendritual zum Loslassen 🌙", 
+      title: "Dein Abendritual zum Loslassen", 
       microBite: "Lass den Tag hinter dir – dein Körper bereitet sich jetzt auf erholsamen Schlaf vor.",
       action: "Handy weglegen (1 Min)",
       actionDescription: "Sensorischer Trigger → dein Signal: Der Tag ist vorbei.",
