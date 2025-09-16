@@ -265,16 +265,16 @@ const CheckInPage: React.FC = () => {
                   </div>
                   {dayNum === 1 && activeTab === 'evening' && (
                     <div className="flex justify-center gap-3 mt-4">
-                      <div className="bg-blue-100 dark:bg-blue-900/30 px-3 py-1 rounded-full">
-                        <span className="text-xs font-medium text-blue-700 dark:text-blue-300">8–10 Min</span>
+                      <div className="bg-gray-100 dark:bg-gray-800 px-3 py-1 rounded-full border border-gray-200 dark:border-gray-700">
+                        <span className="text-xs font-medium text-gray-700 dark:text-gray-300">8–10 Min</span>
                       </div>
-                      <div className="bg-yellow-100 dark:bg-yellow-900/30 px-3 py-1 rounded-full flex items-center gap-0.5">
-                        <div className="w-1.5 h-1.5 bg-yellow-600 dark:bg-yellow-400 rounded-full"></div>
-                        <div className="w-1.5 h-1.5 bg-yellow-600 dark:bg-yellow-400 rounded-full"></div>
-                        <div className="w-1.5 h-1.5 bg-yellow-200 dark:bg-yellow-600 rounded-full"></div>
+                      <div className="bg-gray-100 dark:bg-gray-800 px-3 py-1 rounded-full flex items-center gap-0.5 border border-gray-200 dark:border-gray-700">
+                        <div className="w-1.5 h-1.5 bg-gray-700 dark:bg-gray-300 rounded-full"></div>
+                        <div className="w-1.5 h-1.5 bg-gray-700 dark:bg-gray-300 rounded-full"></div>
+                        <div className="w-1.5 h-1.5 bg-gray-300 dark:bg-gray-600 rounded-full"></div>
                       </div>
-                      <div className="bg-purple-100 dark:bg-purple-900/30 px-3 py-1 rounded-full">
-                        <span className="text-xs font-medium text-purple-700 dark:text-purple-300">Beruhigend</span>
+                      <div className="bg-gray-100 dark:bg-gray-800 px-3 py-1 rounded-full border border-gray-200 dark:border-gray-700">
+                        <span className="text-xs font-medium text-gray-700 dark:text-gray-300">Beruhigend</span>
                       </div>
                     </div>
                   )}
@@ -360,16 +360,16 @@ const CheckInPage: React.FC = () => {
                 {currentEntry.steps.map((step) => (
                   <div key={step.id} className={`rounded-lg border transition-all duration-300 ${
                     step.id === currentStep
-                      ? 'bg-blue-50 dark:bg-blue-900/20 border-blue-200 dark:border-blue-800 shadow-lg'
+                      ? 'bg-gray-50 dark:bg-gray-800/50 border-gray-300 dark:border-gray-600 shadow-lg'
                       : step.id < currentStep
-                        ? 'bg-green-50 dark:bg-green-900/20 border-green-200 dark:border-green-800'
+                        ? 'bg-gray-100 dark:bg-gray-800/30 border-gray-200 dark:border-gray-700'
                         : 'bg-gray-50 dark:bg-gray-800/20 border-gray-200 dark:border-gray-700 opacity-50'
                   }`}>
                     {/* Step Header - Clickable Area */}
                     <div 
                       className={`p-4 cursor-pointer transition-all duration-200 ${
                         step.id <= currentStep 
-                          ? 'hover:bg-blue-100/50 dark:hover:bg-blue-900/30' 
+                          ? 'hover:bg-gray-100/50 dark:hover:bg-gray-700/30' 
                           : 'cursor-not-allowed'
                       }`}
                       onClick={() => step.id <= currentStep && toggleStepExpansion(step.id)}
@@ -388,9 +388,9 @@ const CheckInPage: React.FC = () => {
                           <div className="flex-1">
                             <h3 className={`font-medium ${
                               step.id === currentStep 
-                                ? 'text-blue-700 dark:text-blue-300' 
+                                ? 'text-gray-900 dark:text-gray-100' 
                                 : step.id < currentStep 
-                                  ? 'text-green-700 dark:text-green-300' 
+                                  ? 'text-gray-700 dark:text-gray-300' 
                                   : 'text-gray-500 dark:text-gray-400'
                             }`}>
                               {step.title}
@@ -414,9 +414,9 @@ const CheckInPage: React.FC = () => {
                         <div className="flex items-center gap-2">
                           {/* Status Indicator */}
                           {step.id < currentStep ? (
-                            <div className="text-green-500 text-2xl">✅</div>
+                            <div className="text-gray-600 dark:text-gray-400 text-2xl">✅</div>
                           ) : step.id === currentStep ? (
-                            <div className="text-blue-500 text-2xl">🎯</div>
+                            <div className="text-gray-800 dark:text-gray-200 text-2xl">🎯</div>
                           ) : (
                             <div className="text-gray-400 text-2xl">⏳</div>
                           )}
@@ -430,14 +430,14 @@ const CheckInPage: React.FC = () => {
                         <div className="pt-4 space-y-3">
                           {/* So geht's */}
                           {step.tips && (
-                            <div className="bg-yellow-50 dark:bg-yellow-900/20 p-3 rounded-lg">
+                            <div className="bg-gray-50 dark:bg-gray-800/50 p-3 rounded-lg border border-gray-200 dark:border-gray-700">
                               <div className="flex items-start gap-2">
-                                <span className="text-yellow-600 dark:text-yellow-400">💡</span>
+                                <span className="text-gray-600 dark:text-gray-400">💡</span>
                                 <div>
-                                  <p className="text-sm font-medium text-yellow-700 dark:text-yellow-300 mb-1">
+                                  <p className="text-sm font-medium text-gray-800 dark:text-gray-200 mb-1">
                                     So geht's
                                   </p>
-                                  <p className="text-xs text-yellow-600 dark:text-yellow-400">
+                                  <p className="text-xs text-gray-600 dark:text-gray-400">
                                     {step.tips}
                                   </p>
                                 </div>
@@ -447,14 +447,14 @@ const CheckInPage: React.FC = () => {
 
                           {/* Warum */}
                           {step.why && (
-                            <div className="bg-blue-50 dark:bg-blue-900/20 p-3 rounded-lg">
+                            <div className="bg-gray-50 dark:bg-gray-800/50 p-3 rounded-lg border border-gray-200 dark:border-gray-700">
                               <div className="flex items-start gap-2">
-                                <span className="text-blue-600 dark:text-blue-400">🧠</span>
+                                <span className="text-gray-600 dark:text-gray-400">🧠</span>
                                 <div>
-                                  <p className="text-sm font-medium text-blue-700 dark:text-blue-300 mb-1">
+                                  <p className="text-sm font-medium text-gray-800 dark:text-gray-200 mb-1">
                                     Warum?
                                   </p>
-                                  <p className="text-xs text-blue-600 dark:text-blue-400">
+                                  <p className="text-xs text-gray-600 dark:text-gray-400">
                                     {step.why}
                                   </p>
                                 </div>
@@ -464,14 +464,14 @@ const CheckInPage: React.FC = () => {
 
                           {/* Plan B */}
                           {step.alternative && (
-                            <div className="bg-green-50 dark:bg-green-900/20 p-3 rounded-lg">
+                            <div className="bg-gray-50 dark:bg-gray-800/50 p-3 rounded-lg border border-gray-200 dark:border-gray-700">
                               <div className="flex items-start gap-2">
-                                <span className="text-green-600 dark:text-green-400">🔄</span>
+                                <span className="text-gray-600 dark:text-gray-400">🔄</span>
                                 <div>
-                                  <p className="text-sm font-medium text-green-700 dark:text-green-300 mb-1">
+                                  <p className="text-sm font-medium text-gray-800 dark:text-gray-200 mb-1">
                                     Plan B
                                   </p>
-                                  <p className="text-xs text-green-600 dark:text-green-400">
+                                  <p className="text-xs text-gray-600 dark:text-gray-400">
                                     {step.alternative}
                                   </p>
                                 </div>
@@ -481,18 +481,18 @@ const CheckInPage: React.FC = () => {
                           
                           {/* Audio Player for Step 3 */}
                           {step.id === 3 && step.hasAudio && step.id === currentStep && (
-                            <div className="bg-orange-50 dark:bg-orange-900/20 p-3 rounded-lg">
+                            <div className="bg-gray-50 dark:bg-gray-800/50 p-3 rounded-lg border border-gray-200 dark:border-gray-700">
                               <div className="flex items-start gap-2">
-                                <span className="text-orange-600 dark:text-orange-400">🎧</span>
+                                <span className="text-gray-600 dark:text-gray-400">🎧</span>
                                 <div className="flex-1">
-                                  <p className="text-sm font-medium text-orange-700 dark:text-orange-300 mb-2">
+                                  <p className="text-sm font-medium text-gray-800 dark:text-gray-200 mb-2">
                                     Audio-Content
                                   </p>
                                   <div className="flex items-center gap-2">
-                                    <button className="bg-orange-500 text-white px-3 py-1 rounded text-sm hover:bg-orange-600 transition-colors">
+                                    <button className="bg-gray-800 dark:bg-gray-200 text-white dark:text-gray-800 px-3 py-1 rounded text-sm hover:bg-gray-700 dark:hover:bg-gray-300 transition-colors">
                                       ▶️ Abspielen
                                     </button>
-                                    <span className="text-xs text-orange-600 dark:text-orange-400">
+                                    <span className="text-xs text-gray-600 dark:text-gray-400">
                                       3 Min Audio
                                     </span>
                                   </div>
