@@ -242,7 +242,7 @@ const CheckInPage: React.FC = () => {
           />
 
           {/* Ritual Content */}
-          <Card className="p-6 space-y-6">
+          <Card className={`p-6 space-y-6 ${activeTab === 'morning' ? 'bg-white/90 dark:bg-gray-50/90' : 'bg-gray-50 dark:bg-gray-800/50'}`}>
             {/* Ritual Header */}
             <div className="text-center space-y-3">
               {currentEntry.headerImageUrl ? (
