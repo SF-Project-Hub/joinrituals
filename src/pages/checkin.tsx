@@ -224,15 +224,28 @@ const CheckInPage: React.FC = () => {
                 <h2 className="text-2xl font-bold text-apple-gray-dark dark:text-white">
                   {currentEntry.title}
                 </h2>
-                <p className="text-apple-gray-medium">
-                  {activeTab === 'morning' 
-                    ? uiCopy.home.morningRitual 
-                    : (dayNum === 1 && activeTab === 'evening'
-                        ? "Dauer: 8-10 min • Komplexität: Mittel • Stimmung: beruhigend"
-                        : uiCopy.home.eveningRitual
-                      )
-                  }
-                </p>
+                {activeTab === 'morning' ? (
+                  <p className="text-apple-gray-medium">
+                    {uiCopy.home.morningRitual}
+                  </p>
+                ) : dayNum === 1 && activeTab === 'evening' ? (
+                  <div className="text-apple-gray-medium">
+                    <div className="flex justify-between text-xs mb-1">
+                      <span>Dauer</span>
+                      <span>Komplexität</span>
+                      <span>Stimmung</span>
+                    </div>
+                    <div className="flex justify-between text-sm font-medium">
+                      <span>8-10 min</span>
+                      <span>Mittel</span>
+                      <span>beruhigend</span>
+                    </div>
+                  </div>
+                ) : (
+                  <p className="text-apple-gray-medium">
+                    {uiCopy.home.eveningRitual}
+                  </p>
+                )}
               </div>
             </div>
 
