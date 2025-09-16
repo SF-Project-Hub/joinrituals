@@ -55,14 +55,50 @@ export const defaultChallenge: Challenge = {
     },
 
     { day: 2, ritual: "morning", title: "Fresh Air", microBite: "Öffne das Fenster: Sonnenlicht & frische Luft regulieren deine innere Uhr." },
-    { 
-      day: 2, 
-      ritual: "evening", 
-      title: "Sleep Stack 2 - Tech-Free Wind-Down", 
-      microBite: "Entspannende Abendroutine ohne Technologie",
-      action: "Kerze anzünden ✨ (1 Min) • 10 Min Lesen 📖 (optional)",
-      product: "Relax-Stick trinken 🥤 (2 Min)",
-      content: "2 Min Journaling"
+    {
+      day: 2,
+      ritual: "evening",
+      title: "Ich wache nachts auf / schlafe unruhig",
+      microBite: "Lass den Tag hinter dir – dein Körper bereitet sich jetzt auf erholsamen Schlaf vor.",
+      headerImageUrl: "/header-image.jpg",
+      action: "Blue Light Detox (1 Stunde)",
+      actionDescription: "Weniger blaues Licht = mehr Melatonin → dein Schlaf wird tiefer.",
+      product: "Journaling (3 Sorgen notieren)",
+      productDescription: "Indem du deine Gedanken \"parkst\", entlastest du dein Gehirn für die Nacht.",
+      content: "Sleep Stick trinken",
+      contentDescription: "Elektrolyte stabilisieren die Nachtbalance, Glycin kann die Schlaftiefe fördern.",
+      steps: [
+        {
+          id: 1,
+          title: "Blue Light Detox",
+          description: "",
+          duration: "1 Stunde",
+          icon: "",
+          imageUrl: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=300&h=200&fit=crop&crop=center",
+          tips: "Lege Handy/Laptop eine Stunde vor dem Schlafen beiseite oder nutze Nachtmodus.",
+          why: "Weniger blaues Licht = mehr Melatonin → dein Schlaf wird tiefer."
+        },
+        {
+          id: 2,
+          title: "Journaling (3 Sorgen notieren)",
+          description: "",
+          duration: "5 Min",
+          icon: "",
+          imageUrl: "https://images.unsplash.com/photo-1544148103-0773bf10d330?w=300&h=200&fit=crop&crop=center",
+          tips: "Schreibe 3 Dinge auf, die dich gerade beschäftigen.",
+          why: "Indem du deine Gedanken \"parkst\", entlastest du dein Gehirn für die Nacht."
+        },
+        {
+          id: 3,
+          title: "Sleep Stick trinken",
+          description: "",
+          duration: "2 Min",
+          icon: "",
+          imageUrl: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=300&h=200&fit=crop&crop=center",
+          tips: "Trinke ein Glas mit Sleep Stick, bevor du ins Bett gehst.",
+          why: "Elektrolyte stabilisieren die Nachtbalance, Glycin kann die Schlaftiefe fördern."
+        }
+      ]
     },
 
     { day: 3, ritual: "morning", title: "Movement Boost", microBite: "5 Minuten Stretching oder Mobility – bringt Kreislauf & Gelenke in Schwung." },
