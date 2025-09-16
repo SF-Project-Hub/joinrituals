@@ -18,6 +18,10 @@ export type DayEntry = {
     duration: string;
     icon: string;
     hasAudio?: boolean;
+    tips?: string;
+    why?: string;
+    troubleshooting?: string;
+    alternative?: string;
   }[];
 };
 

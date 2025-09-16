@@ -24,6 +24,7 @@ const CheckInPage: React.FC = () => {
   const [testMode, setTestMode] = useState(false);
   const [currentStep, setCurrentStep] = useState(1);
   const [completedSteps, setCompletedSteps] = useState<number[]>([]);
+  const [expandedSteps, setExpandedSteps] = useState<number[]>([]);
 
   const challengeIdStr = challengeId as string;
   const dayNum = parseInt(day as string);
@@ -76,6 +77,14 @@ const CheckInPage: React.FC = () => {
   }
 
   const isCurrentCompleted = activeTab === 'morning' ? morningCompleted : eveningCompleted;
+
+  const toggleStepExpansion = (stepId: number) => {
+    setExpandedSteps(prev => 
+      prev.includes(stepId) 
+        ? prev.filter(id => id !== stepId)
+        : [...prev, stepId]
+    );
+  };
 
   const handleStepComplete = (stepId: number) => {
     if (!completedSteps.includes(stepId)) {
@@ -304,76 +313,173 @@ const CheckInPage: React.FC = () => {
 
                 {/* Current Step */}
                 {currentEntry.steps.map((step) => (
-                  <div key={step.id} className={`rounded-lg p-4 border transition-all duration-300 ${
+                  <div key={step.id} className={`rounded-lg border transition-all duration-300 ${
                     step.id === currentStep
                       ? 'bg-blue-50 dark:bg-blue-900/20 border-blue-200 dark:border-blue-800 shadow-lg'
                       : step.id < currentStep
                         ? 'bg-green-50 dark:bg-green-900/20 border-green-200 dark:border-green-800'
                         : 'bg-gray-50 dark:bg-gray-800/20 border-gray-200 dark:border-gray-700 opacity-50'
                   }`}>
-                    <div className="flex items-start justify-between">
-                      <div className="flex-1">
-                        <div className="flex items-center gap-2 mb-2">
+                    {/* Step Header - Always Visible */}
+                    <div className="p-4">
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center gap-2 flex-1">
                           <span className="text-lg">{step.icon}</span>
-                          <h3 className={`font-medium ${
-                            step.id === currentStep 
-                              ? 'text-blue-700 dark:text-blue-300' 
-                              : step.id < currentStep 
-                                ? 'text-green-700 dark:text-green-300' 
-                                : 'text-gray-500 dark:text-gray-400'
-                          }`}>
-                            {step.title}
-                          </h3>
-                          <span className="text-xs text-gray-500 dark:text-gray-400">
-                            {step.duration}
-                          </span>
-                        </div>
-                        <p className={`text-sm ${
-                          step.id === currentStep 
-                            ? 'text-blue-600 dark:text-blue-400' 
-                            : step.id < currentStep 
-                              ? 'text-green-600 dark:text-green-400' 
-                              : 'text-gray-400 dark:text-gray-500'
-                        } italic`}>
-                          {step.description}
-                        </p>
-                        
-                        {/* Audio Player for Step 3 */}
-                        {step.id === 3 && step.hasAudio && step.id === currentStep && (
-                          <div className="mt-3 p-3 bg-orange-100 dark:bg-orange-900/30 rounded-lg">
-                            <p className="text-sm text-orange-700 dark:text-orange-300 mb-2">
-                              🎧 Audio-Content wird hier abgespielt
-                            </p>
-                            <div className="flex items-center gap-2">
-                              <button className="bg-orange-500 text-white px-3 py-1 rounded text-sm">
-                                ▶️ Abspielen
-                              </button>
-                              <span className="text-xs text-orange-600 dark:text-orange-400">
-                                3 Min Audio
+                          <div className="flex-1">
+                            <h3 className={`font-medium ${
+                              step.id === currentStep 
+                                ? 'text-blue-700 dark:text-blue-300' 
+                                : step.id < currentStep 
+                                  ? 'text-green-700 dark:text-green-300' 
+                                  : 'text-gray-500 dark:text-gray-400'
+                            }`}>
+                              {step.title}
+                            </h3>
+                            <div className="flex items-center gap-2 mt-1">
+                              <span className="text-xs text-gray-500 dark:text-gray-400">
+                                {step.duration}
+                              </span>
+                              <span className="text-xs text-gray-400">•</span>
+                              <span className={`text-xs ${
+                                step.id === currentStep 
+                                  ? 'text-blue-600 dark:text-blue-400' 
+                                  : step.id < currentStep 
+                                    ? 'text-green-600 dark:text-green-400' 
+                                    : 'text-gray-400 dark:text-gray-500'
+                              }`}>
+                                {step.description}
                               </span>
                             </div>
                           </div>
-                        )}
-                      </div>
-                      
-                      {/* Step Action Button */}
-                      <div className="ml-4">
-                        {step.id < currentStep ? (
-                          <div className="text-green-500 text-2xl">✅</div>
-                        ) : step.id === currentStep ? (
-                          <Button
-                            variant="primary"
-                            size="sm"
-                            onClick={() => handleStepComplete(step.id)}
-                            className="bg-blue-500 hover:bg-blue-600"
+                        </div>
+                        
+                        <div className="flex items-center gap-2">
+                          {/* Expand/Collapse Button */}
+                          <button
+                            onClick={() => toggleStepExpansion(step.id)}
+                            className="p-1 hover:bg-gray-100 dark:hover:bg-gray-700 rounded transition-colors"
+                            disabled={step.id > currentStep}
                           >
-                            {step.id === 3 ? '✨ Ritual abschließen' : '✅ Erledigt'}
-                          </Button>
-                        ) : (
-                          <div className="text-gray-400 text-2xl">⏳</div>
-                        )}
+                            <span className="text-gray-500 dark:text-gray-400">
+                              {expandedSteps.includes(step.id) ? '▲' : '▼'}
+                            </span>
+                          </button>
+                          
+                          {/* Step Action Button */}
+                          {step.id < currentStep ? (
+                            <div className="text-green-500 text-2xl">✅</div>
+                          ) : step.id === currentStep ? (
+                            <Button
+                              variant="primary"
+                              size="sm"
+                              onClick={() => handleStepComplete(step.id)}
+                              className="bg-blue-500 hover:bg-blue-600"
+                            >
+                              {step.id === 3 ? '✨ Ritual abschließen' : '✅ Erledigt'}
+                            </Button>
+                          ) : (
+                            <div className="text-gray-400 text-2xl">⏳</div>
+                          )}
+                        </div>
                       </div>
                     </div>
+                    
+                    {/* Expanded Content */}
+                    {expandedSteps.includes(step.id) && (
+                      <div className="px-4 pb-4 border-t border-gray-200 dark:border-gray-700 bg-white/50 dark:bg-gray-800/50">
+                        <div className="pt-4 space-y-3">
+                          {/* Tips */}
+                          {step.tips && (
+                            <div className="bg-yellow-50 dark:bg-yellow-900/20 p-3 rounded-lg">
+                              <div className="flex items-start gap-2">
+                                <span className="text-yellow-600 dark:text-yellow-400">💡</span>
+                                <div>
+                                  <p className="text-sm font-medium text-yellow-700 dark:text-yellow-300 mb-1">
+                                    Tipp
+                                  </p>
+                                  <p className="text-xs text-yellow-600 dark:text-yellow-400">
+                                    {step.tips}
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+                          )}
+                          
+                          {/* Why */}
+                          {step.why && (
+                            <div className="bg-blue-50 dark:bg-blue-900/20 p-3 rounded-lg">
+                              <div className="flex items-start gap-2">
+                                <span className="text-blue-600 dark:text-blue-400">🧠</span>
+                                <div>
+                                  <p className="text-sm font-medium text-blue-700 dark:text-blue-300 mb-1">
+                                    Warum?
+                                  </p>
+                                  <p className="text-xs text-blue-600 dark:text-blue-400">
+                                    {step.why}
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+                          )}
+                          
+                          {/* Troubleshooting */}
+                          {step.troubleshooting && (
+                            <div className="bg-red-50 dark:bg-red-900/20 p-3 rounded-lg">
+                              <div className="flex items-start gap-2">
+                                <span className="text-red-600 dark:text-red-400">🔧</span>
+                                <div>
+                                  <p className="text-sm font-medium text-red-700 dark:text-red-300 mb-1">
+                                    Problem?
+                                  </p>
+                                  <p className="text-xs text-red-600 dark:text-red-400">
+                                    {step.troubleshooting}
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+                          )}
+                          
+                          {/* Alternative */}
+                          {step.alternative && (
+                            <div className="bg-green-50 dark:bg-green-900/20 p-3 rounded-lg">
+                              <div className="flex items-start gap-2">
+                                <span className="text-green-600 dark:text-green-400">🔄</span>
+                                <div>
+                                  <p className="text-sm font-medium text-green-700 dark:text-green-300 mb-1">
+                                    Alternative
+                                  </p>
+                                  <p className="text-xs text-green-600 dark:text-green-400">
+                                    {step.alternative}
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+                          )}
+                          
+                          {/* Audio Player for Step 3 */}
+                          {step.id === 3 && step.hasAudio && step.id === currentStep && (
+                            <div className="bg-orange-50 dark:bg-orange-900/20 p-3 rounded-lg">
+                              <div className="flex items-start gap-2">
+                                <span className="text-orange-600 dark:text-orange-400">🎧</span>
+                                <div className="flex-1">
+                                  <p className="text-sm font-medium text-orange-700 dark:text-orange-300 mb-2">
+                                    Audio-Content
+                                  </p>
+                                  <div className="flex items-center gap-2">
+                                    <button className="bg-orange-500 text-white px-3 py-1 rounded text-sm hover:bg-orange-600 transition-colors">
+                                      ▶️ Abspielen
+                                    </button>
+                                    <span className="text-xs text-orange-600 dark:text-orange-400">
+                                      3 Min Audio
+                                    </span>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          )}
+                        </div>
+                      </div>
+                    )}
                   </div>
                 ))}
               </div>
