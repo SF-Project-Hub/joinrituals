@@ -78,18 +78,18 @@ const NameOnboardingPage: React.FC = () => {
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 placeholder=""
-                className="w-full px-4 py-4 text-lg border-0 rounded-lg bg-white shadow-sm focus:outline-none focus:ring-2 focus:ring-gray-400"
+                className="w-full px-4 py-4 text-lg border-0 rounded-lg bg-white shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400"
                 style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}
                 autoFocus
               />
             </div>
             
-            {/* Continue Button - clean design */}
+            {/* Continue Button - pastellblau design */}
             <div className="mt-8">
               <button
                 onClick={handleSubmit}
                 disabled={!name.trim() || isSubmitting}
-                className="w-full py-3 px-6 bg-gray-800 text-white rounded-lg font-medium hover:bg-gray-900 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                className="w-full py-3 px-6 bg-blue-400 text-white rounded-lg font-medium hover:bg-blue-500 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
                 style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}
               >
                 {isSubmitting ? 'Saving...' : 'Continue'}
