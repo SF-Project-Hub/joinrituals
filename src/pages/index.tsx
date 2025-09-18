@@ -48,7 +48,7 @@ const HomePage: React.FC = () => {
   }, []);
 
   const handleStartChallenge = () => {
-    router.push('/onboarding');
+    router.push('/name-onboarding');
   };
 
   const handleSkipOnboarding = () => {
