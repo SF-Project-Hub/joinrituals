@@ -14,7 +14,7 @@ const EmailOnboardingPage: React.FC = () => {
     
     try {
       localStorage.setItem('user-email', email.trim());
-      router.push('/onboarding');
+      router.push('/health-priorities');
     } catch (error) {
       console.error('Error saving email:', error);
       setIsSubmitting(false);
