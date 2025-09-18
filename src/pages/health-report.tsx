@@ -11,7 +11,7 @@ const HealthReportPage: React.FC = () => {
     
     try {
       localStorage.setItem('health-report-viewed', 'true');
-      router.push('/checkin?challengeId=30-day-reset&day=1&tab=morning');
+      router.push('/chat');
     } catch (error) {
       console.error('Error saving health report:', error);
       setIsSubmitting(false);
