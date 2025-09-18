@@ -41,17 +41,6 @@ const NameOnboardingPage: React.FC = () => {
         {/* Clean off-white Hintergrund */}
         <div className="absolute inset-0 bg-gradient-to-br from-gray-50 to-gray-100"></div>
         
-        {/* Header mit Back Button */}
-        <div className="relative z-10 pt-12 pb-4 px-4">
-          <button 
-            onClick={() => router.back()}
-            className="text-gray-600 hover:text-gray-800 transition-colors"
-          >
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-            </svg>
-          </button>
-        </div>
         
         {/* Main Content */}
         <div className="relative z-10 flex flex-col items-center justify-center px-4 py-8">
