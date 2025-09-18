@@ -60,9 +60,14 @@ const NameOnboardingPage: React.FC = () => {
         <div className="relative z-10 flex flex-col items-center justify-center px-4 py-8">
           <div className="text-center space-y-6 max-w-sm mx-auto">
             {/* App Name - genau wie im Screenshot */}
-            <h1 className="text-3xl font-bold text-orange-800" style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}>
-              Node
-            </h1>
+            <div className="relative">
+              <h1 className="text-3xl font-bold text-orange-800" style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}>
+                node
+              </h1>
+              {/* Logo Hintergrund */}
+              <div className="absolute -top-2 -right-2 w-8 h-8 bg-orange-200 rounded-full opacity-60"></div>
+              <div className="absolute -bottom-1 -left-1 w-6 h-6 bg-orange-300 rounded-full opacity-40"></div>
+            </div>
             
             {/* Question - genau wie im Screenshot */}
             <h2 className="text-xl font-semibold text-gray-800" style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}>
