@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 
 const NameOnboardingPage: React.FC = () => {
   const router = useRouter();
-  const [name, setName] = useState('Fridi'); // Pre-fill with "Fridi" as in screenshot
+  const [name, setName] = useState(''); // Empty input field
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleSubmit = async () => {
