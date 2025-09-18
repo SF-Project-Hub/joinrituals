@@ -62,7 +62,7 @@ const ChatPage: React.FC = () => {
             <span className="font-medium text-gray-800">Chat with rituals</span>
           </div>
           <button 
-            onClick={() => router.back()}
+            onClick={() => router.push('/dashboard')}
             className="p-2 hover:bg-gray-100 rounded-full transition-colors"
           >
             <svg className="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
