@@ -30,10 +30,10 @@ const EmailOnboardingPage: React.FC = () => {
       </Head>
 
       <div className="min-h-screen flex flex-col relative overflow-hidden" style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}>
-        {/* Off-white grobkörniger Hintergrund - genau wie im Screenshot */}
-        <div className="absolute inset-0 bg-gray-50">
-          <div className="absolute inset-0 opacity-20" style={{
-            backgroundImage: `radial-gradient(circle at 1px 1px, rgba(0,0,0,0.05) 1px, transparent 0)`,
+        {/* Gelber grobkörniger Gradient Hintergrund */}
+        <div className="absolute inset-0 bg-gradient-to-br from-yellow-100 to-yellow-200">
+          <div className="absolute inset-0 opacity-30" style={{
+            backgroundImage: `radial-gradient(circle at 1px 1px, rgba(0,0,0,0.1) 1px, transparent 0)`,
             backgroundSize: '20px 20px'
           }}></div>
         </div>
