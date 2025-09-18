@@ -182,7 +182,10 @@ const DashboardPage: React.FC = () => {
                 <p className="text-sm leading-relaxed mb-4">
                   Welcome to your personalized health dashboard. Track your progress and get insights.
                 </p>
-                <button className="w-full bg-yellow-600 text-white text-sm font-medium py-2 px-4 rounded-xl hover:bg-yellow-700 transition-colors">
+                <button 
+                  onClick={() => router.push('/pulse-check-welcome')}
+                  className="w-full bg-yellow-600 text-white text-sm font-medium py-2 px-4 rounded-xl hover:bg-yellow-700 transition-colors"
+                >
                   Get started
                 </button>
               </div>
