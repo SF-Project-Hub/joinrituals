@@ -30,10 +30,10 @@ const NameOnboardingPage: React.FC = () => {
       </Head>
 
       <div className="min-h-screen flex flex-col relative overflow-hidden" style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}>
-        {/* Gelber grobkörniger Gradient Hintergrund */}
-        <div className="absolute inset-0 bg-gradient-to-br from-yellow-100 to-yellow-200">
-          <div className="absolute inset-0 opacity-30" style={{
-            backgroundImage: `radial-gradient(circle at 1px 1px, rgba(0,0,0,0.1) 1px, transparent 0)`,
+        {/* Off-white grobkörniger Hintergrund */}
+        <div className="absolute inset-0 bg-gray-50">
+          <div className="absolute inset-0 opacity-20" style={{
+            backgroundImage: `radial-gradient(circle at 1px 1px, rgba(0,0,0,0.05) 1px, transparent 0)`,
             backgroundSize: '20px 20px'
           }}></div>
         </div>
@@ -85,7 +85,7 @@ const NameOnboardingPage: React.FC = () => {
               <button
                 onClick={handleSubmit}
                 disabled={!name.trim() || isSubmitting}
-                className="w-full py-3 px-6 bg-gray-700 text-white rounded-lg font-medium hover:bg-gray-800 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                className="w-full py-3 px-6 bg-yellow-400 text-gray-800 rounded-lg font-medium hover:bg-yellow-500 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
               >
                 {isSubmitting ? 'Saving...' : 'Continue'}
               </button>
