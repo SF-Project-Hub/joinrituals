@@ -52,7 +52,7 @@ const NameOnboardingPage: React.FC = () => {
         
         {/* Main Content - alles oben angeordnet wie im Screenshot */}
         <div className="relative z-10 px-4 py-8">
-          <div className="text-center space-y-6 max-w-xs mx-auto">
+          <div className="text-center space-y-6 max-w-[280px] mx-auto">
             {/* App Name - rituals */}
             <h1 className="text-3xl font-bold text-gray-800">
               rituals
