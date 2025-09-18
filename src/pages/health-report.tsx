@@ -49,41 +49,81 @@ const HealthReportPage: React.FC = () => {
         
         {/* Main Content */}
         <div className="relative z-10 px-4 py-8 flex-1">
-          <div className="max-w-[320px] mx-auto">
+          <div className="max-w-[360px] mx-auto">
             {/* App Name */}
             <h1 className="text-3xl font-bold text-gray-800 text-center mb-8">
               rituals
             </h1>
             
             {/* Weekly Health Report Card */}
-            <div className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">
+            <div className="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden">
               {/* Header */}
-              <div className="px-6 py-4 border-b border-gray-200 flex items-center justify-between">
-                <h2 className="text-lg font-semibold text-gray-800">Weekly Health Report</h2>
+              <div className="px-6 py-5 bg-gradient-to-r from-blue-50 to-indigo-50 border-b border-gray-100 flex items-center justify-between">
                 <div className="flex items-center gap-3">
-                  <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.367 2.684 3 3 0 00-5.367-2.684z" />
-                  </svg>
-                  <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                  </svg>
+                  <div className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center">
+                    <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                    </svg>
+                  </div>
+                  <h2 className="text-lg font-bold text-gray-800">Weekly Health Report</h2>
+                </div>
+                <div className="flex items-center gap-2">
+                  <button className="p-2 hover:bg-white/50 rounded-lg transition-colors">
+                    <svg className="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.367 2.684 3 3 0 00-5.367-2.684z" />
+                    </svg>
+                  </button>
+                  <button className="p-2 hover:bg-white/50 rounded-lg transition-colors">
+                    <svg className="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                  </button>
                 </div>
               </div>
 
               {/* Summary Section */}
-              <div className="px-6 py-4 bg-blue-600 text-white">
-                <h3 className="text-sm font-bold uppercase tracking-wide mb-2">SUMMARY</h3>
-                <p className="text-sm leading-relaxed">
-                  Your health data shows a proactive approach to fitness with a variety of workouts, which is excellent for your longevity goals. However, your sleep duration is consistently below the recommended range and shows signs of fragmentation. There's a potential conflict between your evening workout schedule and your primary goal of improving sleep quality.
-                </p>
+              <div className="px-6 py-5 bg-gradient-to-br from-blue-600 to-blue-700 text-white relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-20 h-20 bg-white/10 rounded-full -translate-y-10 translate-x-10"></div>
+                <div className="absolute bottom-0 left-0 w-16 h-16 bg-white/5 rounded-full translate-y-8 -translate-x-8"></div>
+                <div className="relative z-10">
+                  <div className="flex items-center gap-2 mb-3">
+                    <div className="w-6 h-6 bg-white/20 rounded-full flex items-center justify-center">
+                      <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                      </svg>
+                    </div>
+                    <h3 className="text-sm font-bold uppercase tracking-wide">SUMMARY</h3>
+                  </div>
+                  <p className="text-sm leading-relaxed">
+                    Your health data shows a proactive approach to fitness with a variety of workouts, which is excellent for your longevity goals. However, your sleep duration is consistently below the recommended range and shows signs of fragmentation. There's a potential conflict between your evening workout schedule and your primary goal of improving sleep quality.
+                  </p>
+                </div>
               </div>
 
               {/* Main Report Title */}
-              <div className="px-6 py-4">
-                <h2 className="text-xl font-bold text-gray-800 mb-2">Your Personal Health Report</h2>
-                <div className="text-sm text-gray-600 space-y-1">
-                  <p>Date: September 17, 2025</p>
-                  <p>Analysis Period: July 19, 2025 - September 17, 2025</p>
+              <div className="px-6 py-5 bg-gradient-to-r from-gray-50 to-blue-50">
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl flex items-center justify-center">
+                    <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                    </svg>
+                  </div>
+                  <h2 className="text-xl font-bold text-gray-800">Your Personal Health Report</h2>
+                </div>
+                <div className="flex items-center gap-4 text-sm text-gray-600">
+                  <div className="flex items-center gap-1">
+                    <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                    </svg>
+                    <span>September 17, 2025</span>
+                  </div>
+                  <div className="w-px h-4 bg-gray-300"></div>
+                  <div className="flex items-center gap-1">
+                    <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <span>July 19 - Sep 17, 2025</span>
+                  </div>
                 </div>
                 <div className="border-t border-gray-200 mt-4"></div>
               </div>
@@ -102,45 +142,87 @@ const HealthReportPage: React.FC = () => {
               </div>
 
               {/* Key Health Metrics */}
-              <div className="px-6 py-4">
-                <h3 className="text-lg font-bold text-gray-800 mb-4">Key Health Metrics This Week</h3>
-                <div className="overflow-x-auto">
-                  <table className="w-full text-sm">
-                    <thead>
-                      <tr className="border-b border-gray-200">
-                        <th className="text-left py-2 font-medium text-gray-800">Metric</th>
-                        <th className="text-left py-2 font-medium text-gray-800">Your Value</th>
-                        <th className="text-left py-2 font-medium text-gray-800">Trend</th>
-                        <th className="text-left py-2 font-medium text-gray-800">What This Means</th>
-                      </tr>
-                    </thead>
-                    <tbody className="text-gray-700">
-                      <tr className="border-b border-gray-100">
-                        <td className="py-2">Total Sleep</td>
-                        <td className="py-2">6.8 hours</td>
-                        <td className="py-2">→</td>
-                        <td className="py-2">Consistent, but below optimal for recovery</td>
-                      </tr>
-                      <tr className="border-b border-gray-100">
-                        <td className="py-2">Workouts/Week</td>
-                        <td className="py-2">3-4 sessions</td>
-                        <td className="py-2">→</td>
-                        <td className="py-2">Good variety, but strength training is infrequent</td>
-                      </tr>
-                      <tr className="border-b border-gray-100">
-                        <td className="py-2">Time Awake in Bed</td>
-                        <td className="py-2">30-160 minutes</td>
-                        <td className="py-2">→</td>
-                        <td className="py-2">Some long awake periods, possible sleep disruption</td>
-                      </tr>
-                      <tr>
-                        <td className="py-2">Daily Steps</td>
-                        <td className="py-2">2,000-24,800</td>
-                        <td className="py-2">→</td>
-                        <td className="py-2">Active, with a few very high step days</td>
-                      </tr>
-                    </tbody>
-                  </table>
+              <div className="px-6 py-5">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-8 h-8 bg-gradient-to-br from-green-500 to-emerald-600 rounded-lg flex items-center justify-center">
+                    <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                    </svg>
+                  </div>
+                  <h3 className="text-lg font-bold text-gray-800">Key Health Metrics This Week</h3>
+                </div>
+                <div className="space-y-3">
+                  <div className="bg-gradient-to-r from-red-50 to-orange-50 rounded-xl p-4 border border-red-100">
+                    <div className="flex items-center justify-between mb-2">
+                      <div className="flex items-center gap-2">
+                        <div className="w-6 h-6 bg-red-500 rounded-full flex items-center justify-center">
+                          <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                          </svg>
+                        </div>
+                        <span className="font-semibold text-gray-800">Total Sleep</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <span className="text-lg font-bold text-red-600">6.8h</span>
+                        <span className="text-gray-500">→</span>
+                      </div>
+                    </div>
+                    <p className="text-sm text-gray-600">Consistent, but below optimal for recovery</p>
+                  </div>
+                  
+                  <div className="bg-gradient-to-r from-yellow-50 to-amber-50 rounded-xl p-4 border border-yellow-100">
+                    <div className="flex items-center justify-between mb-2">
+                      <div className="flex items-center gap-2">
+                        <div className="w-6 h-6 bg-yellow-500 rounded-full flex items-center justify-center">
+                          <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                          </svg>
+                        </div>
+                        <span className="font-semibold text-gray-800">Workouts/Week</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <span className="text-lg font-bold text-yellow-600">3-4</span>
+                        <span className="text-gray-500">→</span>
+                      </div>
+                    </div>
+                    <p className="text-sm text-gray-600">Good variety, but strength training is infrequent</p>
+                  </div>
+                  
+                  <div className="bg-gradient-to-r from-purple-50 to-pink-50 rounded-xl p-4 border border-purple-100">
+                    <div className="flex items-center justify-between mb-2">
+                      <div className="flex items-center gap-2">
+                        <div className="w-6 h-6 bg-purple-500 rounded-full flex items-center justify-center">
+                          <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                          </svg>
+                        </div>
+                        <span className="font-semibold text-gray-800">Time Awake in Bed</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <span className="text-lg font-bold text-purple-600">30-160m</span>
+                        <span className="text-gray-500">→</span>
+                      </div>
+                    </div>
+                    <p className="text-sm text-gray-600">Some long awake periods, possible sleep disruption</p>
+                  </div>
+                  
+                  <div className="bg-gradient-to-r from-blue-50 to-cyan-50 rounded-xl p-4 border border-blue-100">
+                    <div className="flex items-center justify-between mb-2">
+                      <div className="flex items-center gap-2">
+                        <div className="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center">
+                          <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                          </svg>
+                        </div>
+                        <span className="font-semibold text-gray-800">Daily Steps</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <span className="text-lg font-bold text-blue-600">2K-24K</span>
+                        <span className="text-gray-500">→</span>
+                      </div>
+                    </div>
+                    <p className="text-sm text-gray-600">Active, with a few very high step days</p>
+                  </div>
                 </div>
               </div>
 
@@ -236,9 +318,9 @@ const HealthReportPage: React.FC = () => {
               <button
                 onClick={handleContinue}
                 disabled={isSubmitting}
-                className="w-full py-4 px-6 bg-green-600 text-white rounded-lg font-medium hover:bg-green-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex items-center justify-center gap-2"
+                className="w-full py-4 px-6 bg-gradient-to-r from-green-600 to-emerald-600 text-white rounded-2xl font-medium hover:from-green-700 hover:to-emerald-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 flex items-center justify-center gap-2 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
               >
-                <span>✨</span>
+                <span className="text-lg">✨</span>
                 {isSubmitting ? 'Starting...' : "Let's make a plan"}
               </button>
             </div>
