@@ -8,14 +8,14 @@ const HealthPrioritiesPage: React.FC = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const healthGoals = [
-    { id: 'move-more', title: 'Move more', icon: '🚴' },
-    { id: 'build-muscle', title: 'Build muscle & strength', icon: '🏋️' },
-    { id: 'weight-management', title: 'Weight management', icon: '⚖️' },
-    { id: 'improve-sleep', title: 'Improve sleep quality', icon: '🌙' },
-    { id: 'reduce-stress', title: 'Reduce stress & boost mood', icon: '🧠' },
-    { id: 'improve-nutrition', title: 'Improve nutrition', icon: '🍎' },
-    { id: 'healthy-aging', title: 'Healthy aging', icon: '🌱' },
-    { id: 'increase-energy', title: 'Increase daily energy', icon: '⚡' }
+    { id: 'move-more', title: 'Move more', icon: '○' },
+    { id: 'build-muscle', title: 'Build muscle & strength', icon: '◐' },
+    { id: 'weight-management', title: 'Weight management', icon: '◑' },
+    { id: 'improve-sleep', title: 'Improve sleep quality', icon: '◒' },
+    { id: 'reduce-stress', title: 'Reduce stress & boost mood', icon: '◓' },
+    { id: 'improve-nutrition', title: 'Improve nutrition', icon: '●' },
+    { id: 'healthy-aging', title: 'Healthy aging', icon: '◔' },
+    { id: 'increase-energy', title: 'Increase daily energy', icon: '◕' }
   ];
 
   const toggleGoal = (goalId: string) => {
