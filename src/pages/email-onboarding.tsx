@@ -2,21 +2,21 @@ import React, { useState } from 'react';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 
-const NameOnboardingPage: React.FC = () => {
+const EmailOnboardingPage: React.FC = () => {
   const router = useRouter();
-  const [name, setName] = useState(''); // Empty input field
+  const [email, setEmail] = useState(''); // Empty input field
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleSubmit = async () => {
-    if (!name.trim()) return;
+    if (!email.trim()) return;
     
     setIsSubmitting(true);
     
     try {
-      localStorage.setItem('user-name', name.trim());
-      router.push('/email-onboarding');
+      localStorage.setItem('user-email', email.trim());
+      router.push('/onboarding');
     } catch (error) {
-      console.error('Error saving name:', error);
+      console.error('Error saving email:', error);
       setIsSubmitting(false);
     }
   };
@@ -58,22 +58,22 @@ const NameOnboardingPage: React.FC = () => {
               rituals
             </h1>
             
-            {/* Question - genau wie im Screenshot */}
+            {/* Question - What's your email? */}
             <h2 className="text-xl font-semibold text-gray-800">
-              What's your name?
+              What's your email?
             </h2>
             
-            {/* Subtitle - genau wie im Screenshot */}
+            {/* Subtitle - Updates and insights */}
             <p className="text-sm text-gray-500">
-              We'll use this to personalize your experience.
+              We'll use this to send you important updates and insights.
             </p>
             
             {/* Input Field - genau wie im Screenshot */}
             <div className="mt-8">
               <input
-                type="text"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 placeholder=""
                 className="w-full px-4 py-4 text-lg border-0 rounded-lg bg-white shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400"
                 autoFocus
@@ -84,7 +84,7 @@ const NameOnboardingPage: React.FC = () => {
             <div className="mt-8">
               <button
                 onClick={handleSubmit}
-                disabled={!name.trim() || isSubmitting}
+                disabled={!email.trim() || isSubmitting}
                 className="w-full py-3 px-6 bg-blue-400 text-white rounded-lg font-medium hover:bg-blue-500 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
               >
                 {isSubmitting ? 'Saving...' : 'Continue'}
@@ -97,4 +97,4 @@ const NameOnboardingPage: React.FC = () => {
   );
 };
 
-export default NameOnboardingPage;
+export default EmailOnboardingPage;
