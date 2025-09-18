@@ -12,7 +12,7 @@ const NotificationsPage: React.FC = () => {
     try {
       localStorage.setItem('notifications-enabled', 'true');
       localStorage.setItem('onboarding-completed', 'true');
-      router.push('/checkin?challengeId=30-day-reset&day=1&tab=morning');
+      router.push('/health-report-loading');
     } catch (error) {
       console.error('Error enabling notifications:', error);
       setIsSubmitting(false);
