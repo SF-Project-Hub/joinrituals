@@ -75,7 +75,7 @@ const EmailOnboardingPage: React.FC = () => {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder=""
-                className="w-full px-4 py-4 text-lg border-0 rounded-lg bg-white shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400"
+                className="w-full px-4 py-4 text-lg border-0 rounded-lg bg-white shadow-sm focus:outline-none focus:ring-2 focus:ring-gray-400"
                 autoFocus
               />
             </div>
@@ -85,7 +85,7 @@ const EmailOnboardingPage: React.FC = () => {
               <button
                 onClick={handleSubmit}
                 disabled={!email.trim() || isSubmitting}
-                className="w-full py-3 px-6 bg-blue-400 text-white rounded-lg font-medium hover:bg-blue-500 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                className="w-full py-3 px-6 bg-gray-700 text-white rounded-lg font-medium hover:bg-gray-800 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
               >
                 {isSubmitting ? 'Saving...' : 'Continue'}
               </button>
