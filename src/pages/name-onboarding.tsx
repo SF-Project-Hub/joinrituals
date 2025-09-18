@@ -26,9 +26,6 @@ const NameOnboardingPage: React.FC = () => {
     }
   };
 
-  const handleSkip = () => {
-    router.push('/onboarding');
-  };
 
   return (
     <>
@@ -85,16 +82,6 @@ const NameOnboardingPage: React.FC = () => {
               </button>
             </div>
             
-            {/* Skip Button */}
-            <div className="mt-4">
-              <button
-                onClick={handleSkip}
-                className="text-sm text-gray-500 hover:text-gray-700 transition-colors"
-                style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}
-              >
-                Skip for now
-              </button>
-            </div>
           </div>
         </div>
       </div>
