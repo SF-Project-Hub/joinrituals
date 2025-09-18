@@ -68,24 +68,24 @@ const NameOnboardingPage: React.FC = () => {
               We'll use this to personalize your experience.
             </p>
             
-            {/* Input Field - gleich groß wie Button */}
+            {/* Input Field - genau wie im Screenshot */}
             <div className="mt-8">
               <input
                 type="text"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 placeholder=""
-                className="w-full px-4 py-3 text-lg border-0 rounded-full bg-white shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400"
+                className="w-full px-4 py-4 text-lg border-0 rounded-lg bg-white shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400"
                 autoFocus
               />
             </div>
             
-            {/* Continue Button - gleich groß wie Input */}
+            {/* Continue Button - genau wie im Screenshot */}
             <div className="mt-8">
               <button
                 onClick={handleSubmit}
                 disabled={!name.trim() || isSubmitting}
-                className="w-full py-3 px-4 bg-blue-400 text-white rounded-full font-medium hover:bg-blue-500 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                className="w-full py-3 px-6 bg-blue-400 text-white rounded-lg font-medium hover:bg-blue-500 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
               >
                 {isSubmitting ? 'Saving...' : 'Continue'}
               </button>
