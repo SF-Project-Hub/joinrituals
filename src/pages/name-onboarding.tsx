@@ -37,65 +37,79 @@ const NameOnboardingPage: React.FC = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
       </Head>
       
-      <div className="min-h-screen flex flex-col items-center justify-center p-4 relative overflow-hidden">
+      <div className="min-h-screen bg-orange-50 relative overflow-hidden">
         {/* Orange grobkörniger Hintergrund */}
-        <div className="absolute inset-0 bg-gradient-to-br from-orange-100 via-orange-200 to-orange-300">
-          <div className="absolute inset-0 opacity-20" style={{
-            backgroundImage: `radial-gradient(circle at 1px 1px, rgba(0,0,0,0.1) 1px, transparent 0)`,
-            backgroundSize: '20px 20px'
-          }}></div>
+        <div className="absolute inset-0" style={{
+          backgroundImage: `radial-gradient(circle at 1px 1px, rgba(0,0,0,0.05) 1px, transparent 0)`,
+          backgroundSize: '20px 20px'
+        }}></div>
+        
+        {/* Header mit Back Button */}
+        <div className="relative z-10 pt-12 pb-4 px-4">
+          <button 
+            onClick={() => router.back()}
+            className="text-gray-600 hover:text-gray-800 transition-colors"
+          >
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+            </svg>
+          </button>
         </div>
         
-        <div className="relative z-10 text-center max-w-md mx-auto space-y-8">
-          {/* App Name */}
-          <div className="space-y-4">
-            <h1 className="text-4xl font-bold text-orange-800 dark:text-orange-900">
+        {/* Main Content */}
+        <div className="relative z-10 flex flex-col items-center justify-center px-4 py-8">
+          <div className="text-center space-y-6 max-w-sm mx-auto">
+            {/* App Name - genau wie im Screenshot */}
+            <h1 className="text-3xl font-bold text-orange-800" style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}>
               Node
             </h1>
-            <h2 className="text-2xl font-semibold text-gray-800 dark:text-gray-900">
+            
+            {/* Question - genau wie im Screenshot */}
+            <h2 className="text-xl font-semibold text-gray-800" style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}>
               What's your name?
             </h2>
-            <p className="text-gray-600 dark:text-gray-700">
+            
+            {/* Subtitle - genau wie im Screenshot */}
+            <p className="text-sm text-gray-500" style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}>
               We'll use this to personalize your experience.
             </p>
-          </div>
-          
-          {/* Name Input */}
-          <Card className="p-6 bg-white/90 dark:bg-gray-50/90 backdrop-blur-sm border border-orange-200 dark:border-orange-300">
-            <div className="space-y-4">
-              <div>
-                <input
-                  type="text"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                  placeholder="Enter your name"
-                  className="w-full px-4 py-3 text-lg border border-gray-300 dark:border-gray-400 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 dark:bg-white dark:text-gray-900 placeholder-gray-500"
-                  autoFocus
-                />
-              </div>
-              
-              <div className="space-y-3">
-                <Button 
-                  variant="primary" 
-                  size="lg" 
-                  onClick={handleSubmit}
-                  disabled={!name.trim() || isSubmitting}
-                  className="w-full bg-orange-600 hover:bg-orange-700 text-white"
-                >
-                  {isSubmitting ? 'Saving...' : 'Continue'}
-                </Button>
-                
-                <Button 
-                  variant="ghost" 
-                  size="sm" 
-                  onClick={handleSkip}
-                  className="w-full text-gray-600 dark:text-gray-500"
-                >
-                  Skip for now
-                </Button>
-              </div>
+            
+            {/* Input Field - genau wie im Screenshot */}
+            <div className="mt-8">
+              <input
+                type="text"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                placeholder=""
+                className="w-full px-4 py-4 text-lg border-0 rounded-lg bg-white shadow-sm focus:outline-none focus:ring-2 focus:ring-orange-500"
+                style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}
+                autoFocus
+              />
             </div>
-          </Card>
+            
+            {/* Continue Button - genau wie im Screenshot */}
+            <div className="mt-8">
+              <button
+                onClick={handleSubmit}
+                disabled={!name.trim() || isSubmitting}
+                className="w-full py-3 px-6 bg-orange-600 text-white rounded-lg font-medium hover:bg-orange-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}
+              >
+                {isSubmitting ? 'Saving...' : 'Continue'}
+              </button>
+            </div>
+            
+            {/* Skip Button */}
+            <div className="mt-4">
+              <button
+                onClick={handleSkip}
+                className="text-sm text-gray-500 hover:text-gray-700 transition-colors"
+                style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}
+              >
+                Skip for now
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </>
