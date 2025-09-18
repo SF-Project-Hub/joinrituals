@@ -37,12 +37,9 @@ const NameOnboardingPage: React.FC = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
       </Head>
       
-      <div className="min-h-screen bg-orange-50 relative overflow-hidden">
-        {/* Orange grobkörniger Hintergrund */}
-        <div className="absolute inset-0" style={{
-          backgroundImage: `radial-gradient(circle at 1px 1px, rgba(0,0,0,0.05) 1px, transparent 0)`,
-          backgroundSize: '20px 20px'
-        }}></div>
+      <div className="min-h-screen bg-gray-50 relative overflow-hidden">
+        {/* Clean off-white Hintergrund */}
+        <div className="absolute inset-0 bg-gradient-to-br from-gray-50 to-gray-100"></div>
         
         {/* Header mit Back Button */}
         <div className="relative z-10 pt-12 pb-4 px-4">
@@ -59,15 +56,10 @@ const NameOnboardingPage: React.FC = () => {
         {/* Main Content */}
         <div className="relative z-10 flex flex-col items-center justify-center px-4 py-8">
           <div className="text-center space-y-6 max-w-sm mx-auto">
-            {/* App Name - genau wie im Screenshot */}
-            <div className="relative">
-              <h1 className="text-3xl font-bold text-orange-800" style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}>
-                node
-              </h1>
-              {/* Logo Hintergrund */}
-              <div className="absolute -top-2 -right-2 w-8 h-8 bg-orange-200 rounded-full opacity-60"></div>
-              <div className="absolute -bottom-1 -left-1 w-6 h-6 bg-orange-300 rounded-full opacity-40"></div>
-            </div>
+            {/* App Name - clean design */}
+            <h1 className="text-3xl font-bold text-gray-800" style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}>
+              node
+            </h1>
             
             {/* Question - genau wie im Screenshot */}
             <h2 className="text-xl font-semibold text-gray-800" style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}>
@@ -86,18 +78,18 @@ const NameOnboardingPage: React.FC = () => {
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 placeholder=""
-                className="w-full px-4 py-4 text-lg border-0 rounded-lg bg-white shadow-sm focus:outline-none focus:ring-2 focus:ring-orange-500"
+                className="w-full px-4 py-4 text-lg border-0 rounded-lg bg-white shadow-sm focus:outline-none focus:ring-2 focus:ring-gray-400"
                 style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}
                 autoFocus
               />
             </div>
             
-            {/* Continue Button - genau wie im Screenshot */}
+            {/* Continue Button - clean design */}
             <div className="mt-8">
               <button
                 onClick={handleSubmit}
                 disabled={!name.trim() || isSubmitting}
-                className="w-full py-3 px-6 bg-orange-600 text-white rounded-lg font-medium hover:bg-orange-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                className="w-full py-3 px-6 bg-gray-800 text-white rounded-lg font-medium hover:bg-gray-900 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
                 style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}
               >
                 {isSubmitting ? 'Saving...' : 'Continue'}
