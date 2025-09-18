@@ -24,8 +24,8 @@ const NameOnboardingPage: React.FC = () => {
   return (
     <>
       <Head>
-        <title>nori</title>
-        <meta name="description" content="Personalize your experience with nori" />
+        <title>rituals</title>
+        <meta name="description" content="Personalize your experience with rituals" />
         <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
       </Head>
 
@@ -50,12 +50,12 @@ const NameOnboardingPage: React.FC = () => {
           </button>
         </div>
         
-        {/* Main Content - genau wie im Screenshot */}
-        <div className="relative z-10 flex-1 flex flex-col items-center justify-center px-4 py-8">
+        {/* Main Content - alles oben angeordnet wie im Screenshot */}
+        <div className="relative z-10 px-4 py-8">
           <div className="text-center space-y-6 max-w-sm mx-auto">
-            {/* App Name - genau wie im Screenshot */}
+            {/* App Name - rituals */}
             <h1 className="text-3xl font-bold text-gray-800">
-              nori
+              rituals
             </h1>
             
             {/* Question - genau wie im Screenshot */}
